@@ -15,8 +15,9 @@ class SearchTVViewController: UIViewController, UICollectionViewDelegate, UIColl
     
 
     @IBOutlet weak var searchTVCollectionView: UICollectionView!
+
     
-    var tvList = [TVModel]()
+    var tvList : [TVModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +25,9 @@ class SearchTVViewController: UIViewController, UICollectionViewDelegate, UIColl
         searchTVCollectionView.delegate = self
         searchTVCollectionView.dataSource = self
         
+        
+        designNavibar()
+        designShadow()
         designCellLayout()
         requestData()
         
@@ -37,9 +41,13 @@ class SearchTVViewController: UIViewController, UICollectionViewDelegate, UIColl
         
         guard let cell = searchTVCollectionView.dequeueReusableCell(withReuseIdentifier: SearchTVCollectionViewCell.identifier, for: indexPath) as? SearchTVCollectionViewCell else { return UICollectionViewCell() }
         
+        cell.firstDateLabel.text = tvList[indexPath.item].firstDate
+        cell.tvNameLabel.text = tvList[indexPath.item].tvName
+        let url = URL(string: EndPoint.tmdbImageUrl+tvList[indexPath.item].imageURL)
+        cell.tvImageView.kf.setImage(with: url)
+        cell.gradeLabel.text = tvList[indexPath.item].grade
         
-        
-        
+        searchTVCollectionView.reloadData()
         
         return cell
     }
@@ -48,18 +56,18 @@ class SearchTVViewController: UIViewController, UICollectionViewDelegate, UIColl
         
         let layout = UICollectionViewFlowLayout()
         
-        let spacing: CGFloat = 16
+        let spacing: CGFloat = 24
         
         let width = UIScreen.main.bounds.width - (spacing * 2)
         
-        layout.itemSize = CGSize(width: width , height: width * 1.2 )
+        layout.itemSize = CGSize(width: width , height: width * 1.4 )
         
         layout.scrollDirection = .vertical
         
         layout.sectionInset = UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
         
-        layout.minimumLineSpacing = spacing
-        layout.minimumInteritemSpacing = spacing
+        layout.minimumLineSpacing = spacing * 4
+        layout.minimumInteritemSpacing = spacing * 4
         
         searchTVCollectionView.collectionViewLayout = layout
         
@@ -75,15 +83,15 @@ class SearchTVViewController: UIViewController, UICollectionViewDelegate, UIColl
                 let json = JSON(value)
                 print("JSON: \(json)")
                 
-                for item in json["result"].arrayValue {
+                for item in json["results"] {
                     
-                    let tvNm = item["title"].stringValue
-                    let firstDt = item["first_air_date"].stringValue
-                    let tvGenre = item["genre_ids"].arrayObject as! [Int]
-                    let imageUrl = item["poster_path"].stringValue
-                    let tvGrade = item["vote_average"].doubleValue
+                    let first_air_date = item.1["first_air_date"].stringValue
+                    let genre_ids = item.1["genre_ids"].arrayObject as! [Int]
+                    let name = item.1["name"].stringValue
+                    let vote_average = item.1["vote_average"].doubleValue
+                    let poster_path = item.1["poster_path"].stringValue
                     
-                    let data = TVModel(firstDate: firstDt, genre: tvGenre, tvName: tvNm, grade: tvGrade, imageURL: imageUrl)
+                    let data = TVModel(firstDate: first_air_date, genre: genre_ids, tvName: name, grade: "\(round(vote_average * 100) / 100.0)", imageURL: poster_path)
                     
                     self.tvList.append(data)
                 }
@@ -99,6 +107,12 @@ class SearchTVViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
     
     func designNavibar() {
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "list.triangle"), style: .plain, target: nil, action: nil)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"), style: .plain, target: nil, action: nil)
+    }
+    
+    func getGenres(){
+        
         
     }
 }

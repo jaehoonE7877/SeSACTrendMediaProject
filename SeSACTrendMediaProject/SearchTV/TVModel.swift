@@ -12,7 +12,12 @@ struct TVModel {
     let firstDate: String
     let genre: [Int]
     let tvName: String
-    let grade: Double
+    let grade: String
     let imageURL: String
     
+}
+
+struct GenreModel {
+    
+    let genreDic: [Int : String]
 }
