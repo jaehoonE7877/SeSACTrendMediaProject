@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--DetailTV View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="DetailTVViewController" id="Y6W-OH-hqX" customClass="DetailTVViewController" customModule="SeSACTrendMediaProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mNA-Kn-910">
+                                <rect key="frame" x="0.0" y="44" width="414" height="215"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Pez-8W-ECB">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="215"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Wew-Xg-Ras">
+                                        <rect key="frame" x="40" y="82.5" width="99.5" height="132.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Wew-Xg-Ras" secondAttribute="height" multiplier="3:4" id="1d4-OJ-dib"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v60-Id-6AE">
+                                        <rect key="frame" x="40" y="34" width="182" height="48.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="v60-Id-6AE" secondAttribute="height" multiplier="15:4" id="sxh-ho-hbz"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="v60-Id-6AE" firstAttribute="width" secondItem="Pez-8W-ECB" secondAttribute="width" multiplier="0.44" id="3dO-fn-wxL"/>
+                                    <constraint firstItem="Wew-Xg-Ras" firstAttribute="top" secondItem="v60-Id-6AE" secondAttribute="bottom" id="Mc2-oS-B8y"/>
+                                    <constraint firstItem="Wew-Xg-Ras" firstAttribute="leading" secondItem="mNA-Kn-910" secondAttribute="leading" constant="40" id="Pz8-SL-ZmX"/>
+                                    <constraint firstAttribute="trailing" secondItem="Pez-8W-ECB" secondAttribute="trailing" id="Th6-VY-dvV"/>
+                                    <constraint firstItem="v60-Id-6AE" firstAttribute="leading" secondItem="mNA-Kn-910" secondAttribute="leading" constant="40" id="XzQ-XF-Ou0"/>
+                                    <constraint firstAttribute="bottom" secondItem="Pez-8W-ECB" secondAttribute="bottom" id="Zli-DW-QvH"/>
+                                    <constraint firstAttribute="bottom" secondItem="Wew-Xg-Ras" secondAttribute="bottom" id="fM6-BY-aEk"/>
+                                    <constraint firstItem="Wew-Xg-Ras" firstAttribute="width" secondItem="Pez-8W-ECB" secondAttribute="width" multiplier="0.24" id="iXZ-ii-nGM"/>
+                                    <constraint firstItem="Pez-8W-ECB" firstAttribute="leading" secondItem="mNA-Kn-910" secondAttribute="leading" id="o0S-6k-emM"/>
+                                    <constraint firstItem="Pez-8W-ECB" firstAttribute="top" secondItem="mNA-Kn-910" secondAttribute="top" id="ys2-05-XPa"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="nyb-Kb-44Z">
+                                <rect key="frame" x="0.0" y="259" width="414" height="603"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="mNA-Kn-910" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="61s-eH-xDP"/>
+                            <constraint firstItem="nyb-Kb-44Z" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="EZb-h2-TrL"/>
+                            <constraint firstItem="mNA-Kn-910" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Ov4-m0-Wwz"/>
+                            <constraint firstItem="nyb-Kb-44Z" firstAttribute="top" secondItem="mNA-Kn-910" secondAttribute="bottom" id="VI3-8D-Sf6"/>
+                            <constraint firstItem="mNA-Kn-910" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" multiplier="0.24" id="Xcg-k3-83j"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="nyb-Kb-44Z" secondAttribute="trailing" id="hhH-GY-ZcA"/>
+                            <constraint firstItem="mNA-Kn-910" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="mjI-BL-3JK"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="nyb-Kb-44Z" secondAttribute="bottom" id="pvg-ZU-bgj"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="detailTvTableView" destination="nyb-Kb-44Z" id="xlU-b4-l35"/>
+                        <outlet property="mainImageView" destination="Pez-8W-ECB" id="LJK-KD-45v"/>
+                        <outlet property="posterImageView" destination="Wew-Xg-Ras" id="Fal-wI-zJK"/>
+                        <outlet property="tvTitleLabel" destination="v60-Id-6AE" id="qqb-pq-JRz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="56.521739130434788" y="54.910714285714285"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

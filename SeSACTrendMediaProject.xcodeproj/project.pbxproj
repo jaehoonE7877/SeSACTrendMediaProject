@@ -25,6 +25,16 @@
 		25A2A435289A6AB5009DC92B /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 25A2A434289A6AB5009DC92B /* SwiftyJSON */; };
 		25A2A438289A6AC7009DC92B /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 25A2A437289A6AC7009DC92B /* Kingfisher */; };
 		25A2A43A289A6B34009DC92B /* TVModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A2A439289A6B34009DC92B /* TVModel.swift */; };
+		25A2A445289BAA0C009DC92B /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 25A2A444289BAA0C009DC92B /* JGProgressHUD */; };
+		25A2A44A289BB508009DC92B /* DetailTV.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25A2A449289BB508009DC92B /* DetailTV.storyboard */; };
+		25A2A44C289BB522009DC92B /* DetailTVViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A2A44B289BB522009DC92B /* DetailTVViewController.swift */; };
+		25A2A455289BBDA1009DC92B /* TVOverviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A2A453289BBDA1009DC92B /* TVOverviewTableViewCell.swift */; };
+		25A2A456289BBDA1009DC92B /* TVOverviewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25A2A454289BBDA1009DC92B /* TVOverviewTableViewCell.xib */; };
+		25A2A459289BBDB9009DC92B /* TVCastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A2A457289BBDB9009DC92B /* TVCastTableViewCell.swift */; };
+		25A2A45A289BBDB9009DC92B /* TVCastTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25A2A458289BBDB9009DC92B /* TVCastTableViewCell.xib */; };
+		25A2A45D289BC011009DC92B /* ReusableViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A2A45C289BC011009DC92B /* ReusableViewProtocol.swift */; };
+		25A2A45F289BC2FA009DC92B /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A2A45E289BC2FA009DC92B /* Constant.swift */; };
+		25A2A461289BCA13009DC92B /* CastModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A2A460289BCA13009DC92B /* CastModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +55,15 @@
 		25A2A42A289A5C33009DC92B /* SearchTVViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTVViewController.swift; sourceTree = "<group>"; };
 		25A2A42E289A6971009DC92B /* SearchTVCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTVCollectionViewCell.swift; sourceTree = "<group>"; };
 		25A2A439289A6B34009DC92B /* TVModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVModel.swift; sourceTree = "<group>"; };
+		25A2A449289BB508009DC92B /* DetailTV.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailTV.storyboard; sourceTree = "<group>"; };
+		25A2A44B289BB522009DC92B /* DetailTVViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTVViewController.swift; sourceTree = "<group>"; };
+		25A2A453289BBDA1009DC92B /* TVOverviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVOverviewTableViewCell.swift; sourceTree = "<group>"; };
+		25A2A454289BBDA1009DC92B /* TVOverviewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TVOverviewTableViewCell.xib; sourceTree = "<group>"; };
+		25A2A457289BBDB9009DC92B /* TVCastTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVCastTableViewCell.swift; sourceTree = "<group>"; };
+		25A2A458289BBDB9009DC92B /* TVCastTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TVCastTableViewCell.xib; sourceTree = "<group>"; };
+		25A2A45C289BC011009DC92B /* ReusableViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableViewProtocol.swift; sourceTree = "<group>"; };
+		25A2A45E289BC2FA009DC92B /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		25A2A460289BCA13009DC92B /* CastModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25A2A445289BAA0C009DC92B /* JGProgressHUD in Frameworks */,
 				25A2A438289A6AC7009DC92B /* Kingfisher in Frameworks */,
 				25A2A435289A6AB5009DC92B /* SwiftyJSON in Frameworks */,
 				25A2A432289A6AA6009DC92B /* Alamofire in Frameworks */,
@@ -81,6 +101,7 @@
 		25286DAA2899F6CE001A4C00 /* SeSACTrendMediaProject */ = {
 			isa = PBXGroup;
 			children = (
+				25A2A45B289BBFF3009DC92B /* Protocol */,
 				25286DC62899FA87001A4C00 /* Key */,
 				25286DC52899FA17001A4C00 /* Resource */,
 				25286DAB2899F6CE001A4C00 /* AppDelegate.swift */,
@@ -92,6 +113,7 @@
 				25286DB92899F6D1001A4C00 /* Info.plist */,
 				25286DC12899F828001A4C00 /* SearchViewController.swift */,
 				25A2A425289A5B68009DC92B /* SearchTV */,
+				25A2A446289BB4CA009DC92B /* DetailTV */,
 			);
 			path = SeSACTrendMediaProject;
 			sourceTree = "<group>";
@@ -101,6 +123,7 @@
 			children = (
 				25286DC92899FAB7001A4C00 /* Example2.swift */,
 				25286DC32899F88D001A4C00 /* APIKey.swift */,
+				25A2A45E289BC2FA009DC92B /* Constant.swift */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -124,6 +147,28 @@
 			path = SearchTV;
 			sourceTree = "<group>";
 		};
+		25A2A446289BB4CA009DC92B /* DetailTV */ = {
+			isa = PBXGroup;
+			children = (
+				25A2A449289BB508009DC92B /* DetailTV.storyboard */,
+				25A2A460289BCA13009DC92B /* CastModel.swift */,
+				25A2A44B289BB522009DC92B /* DetailTVViewController.swift */,
+				25A2A453289BBDA1009DC92B /* TVOverviewTableViewCell.swift */,
+				25A2A454289BBDA1009DC92B /* TVOverviewTableViewCell.xib */,
+				25A2A457289BBDB9009DC92B /* TVCastTableViewCell.swift */,
+				25A2A458289BBDB9009DC92B /* TVCastTableViewCell.xib */,
+			);
+			path = DetailTV;
+			sourceTree = "<group>";
+		};
+		25A2A45B289BBFF3009DC92B /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				25A2A45C289BC011009DC92B /* ReusableViewProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -144,6 +189,7 @@
 				25A2A431289A6AA6009DC92B /* Alamofire */,
 				25A2A434289A6AB5009DC92B /* SwiftyJSON */,
 				25A2A437289A6AC7009DC92B /* Kingfisher */,
+				25A2A444289BAA0C009DC92B /* JGProgressHUD */,
 			);
 			productName = SeSACTrendMediaProject;
 			productReference = 25286DA82899F6CE001A4C00 /* SeSACTrendMediaProject.app */;
@@ -177,6 +223,7 @@
 				25A2A430289A6AA6009DC92B /* XCRemoteSwiftPackageReference "Alamofire" */,
 				25A2A433289A6AB5009DC92B /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				25A2A436289A6AC7009DC92B /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				25A2A443289BAA0B009DC92B /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
 			);
 			productRefGroup = 25286DA92899F6CE001A4C00 /* Products */;
 			projectDirPath = "";
@@ -192,9 +239,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25A2A45A289BBDB9009DC92B /* TVCastTableViewCell.xib in Resources */,
 				25286DC02899F7D4001A4C00 /* .gitignore in Resources */,
 				25286DB82899F6D1001A4C00 /* LaunchScreen.storyboard in Resources */,
+				25A2A456289BBDA1009DC92B /* TVOverviewTableViewCell.xib in Resources */,
 				25A2A429289A5C03009DC92B /* SearchTV.storyboard in Resources */,
+				25A2A44A289BB508009DC92B /* DetailTV.storyboard in Resources */,
 				25286DB52899F6D1001A4C00 /* Assets.xcassets in Resources */,
 				25286DB32899F6CE001A4C00 /* Main.storyboard in Resources */,
 			);
@@ -209,12 +259,18 @@
 			files = (
 				25286DB02899F6CE001A4C00 /* ViewController.swift in Sources */,
 				25286DAC2899F6CE001A4C00 /* AppDelegate.swift in Sources */,
+				25A2A45F289BC2FA009DC92B /* Constant.swift in Sources */,
 				25286DC82899FAAC001A4C00 /* Example.swift in Sources */,
 				25A2A43A289A6B34009DC92B /* TVModel.swift in Sources */,
+				25A2A455289BBDA1009DC92B /* TVOverviewTableViewCell.swift in Sources */,
+				25A2A461289BCA13009DC92B /* CastModel.swift in Sources */,
 				25286DCA2899FAB7001A4C00 /* Example2.swift in Sources */,
 				25A2A42F289A6971009DC92B /* SearchTVCollectionViewCell.swift in Sources */,
 				25286DC22899F828001A4C00 /* SearchViewController.swift in Sources */,
 				25286DAE2899F6CE001A4C00 /* SceneDelegate.swift in Sources */,
+				25A2A459289BBDB9009DC92B /* TVCastTableViewCell.swift in Sources */,
+				25A2A44C289BB522009DC92B /* DetailTVViewController.swift in Sources */,
+				25A2A45D289BC011009DC92B /* ReusableViewProtocol.swift in Sources */,
 				25A2A42B289A5C33009DC92B /* SearchTVViewController.swift in Sources */,
 				25286DC42899F88D001A4C00 /* APIKey.swift in Sources */,
 			);
@@ -460,6 +516,14 @@
 				minimumVersion = 7.0.0;
 			};
 		};
+		25A2A443289BAA0B009DC92B /* XCRemoteSwiftPackageReference "JGProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/JonasGessner/JGProgressHUD.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -477,6 +541,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 25A2A436289A6AC7009DC92B /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		25A2A444289BAA0C009DC92B /* JGProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 25A2A443289BAA0B009DC92B /* XCRemoteSwiftPackageReference "JGProgressHUD" */;
+			productName = JGProgressHUD;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

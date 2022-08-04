@@ -10,14 +10,12 @@ import Foundation
 struct TVModel {
     
     let firstDate: String
-    let genre: [Int]
+    let genre: Int
     let tvName: String
-    let grade: String
+    let grade: Double
     let imageURL: String
+    let overview: String
+    let tvID: Int
     
 }
 
-struct GenreModel {
-    
-    let genreDic: [Int : String]
-}

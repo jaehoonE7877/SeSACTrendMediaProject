@@ -17,27 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     
-        func requestGenre() {
-            
-            let url = EndPoint.genreUrl+APIKey.key
-            
-            AF.request(url, method: .get).validate().responseJSON { response in //앞쪽 접두어 AF로 바꿔야 함
-                switch response.result {
-                case .success(let value):
-                    let json = JSON(value)
-                    print("JSON: \(json)")
-                    
-                    
-                    
-                    
-                case .failure(let error):
-                    print(error)
-                    
-                }
-            }
-            
-        }
-        
         
         return true
     }
