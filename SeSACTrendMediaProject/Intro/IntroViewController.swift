@@ -1,44 +1,48 @@
 //
-//  SearchTVViewController.swift
+//  IntroViewController.swift
 //  SeSACTrendMediaProject
 //
-//  Created by Seo Jae Hoon on 2022/08/03.
+//  Created by Seo Jae Hoon on 2022/08/05.
 //
 
 import UIKit
 
 import Alamofire
-import SwiftyJSON
-import Kingfisher
 import JGProgressHUD
+import Kingfisher
+import SwiftyJSON
 
-class SearchTVViewController: UIViewController {
-   
+class IntroViewController: UIViewController {
     
-    @IBOutlet weak var searchTVCollectionView: UICollectionView!
+    @IBOutlet weak var introCollectionView: UICollectionView!
     
     let hud = JGProgressHUD()
     
-    var tvList : [TVModel] = []
-    var genreList : [Int:String] = [:]
-    var totalPage = 0
+    var tvList: [TvModel] = []
+    var genreList: [Int : String] = [:]
     var startPage = 1
+    var totalPage = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        searchTVCollectionView.delegate = self
-        searchTVCollectionView.dataSource = self
         
+        introCollectionView.delegate = self
+        introCollectionView.dataSource = self
         
-        searchTVCollectionView.prefetchDataSource = self
+        introCollectionView.prefetchDataSource = self
         
-        collectionViewLayout()
+        introCollectionView.register(UINib(nibName: IntroCollectionViewCell.reuseIdentifier, bundle: nil), forCellWithReuseIdentifier: IntroCollectionViewCell.reuseIdentifier)
+        
         designNavibar()
+        collectionViewLayout()
         requestData()
-        
     }
-
+    
+    func designNavibar() {
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "list.triangle"), style: .plain, target: nil, action: nil)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"), style: .plain, target: nil, action: nil)
+    }
+    
     func requestData() {
         
         hud.show(in: view)
@@ -60,58 +64,49 @@ class SearchTVViewController: UIViewController {
                     let name = item.1["name"].stringValue
                     let vote_average = item.1["vote_average"].doubleValue
                     let poster_path = item.1["poster_path"].stringValue
+                    let backdrop_path = item.1["backdrop_path"].stringValue
                     let overview = item.1["overview"].stringValue
                     let tvId = item.1["id"].intValue
                     
-                    let data = TVModel(firstDate: first_air_date, genre: genre_ids, tvName: name, grade: vote_average, imageURL: poster_path, overview: overview, tvID: tvId)
+                    let data = TvModel(firstDate: first_air_date, genre: genre_ids, tvName: name, grade: vote_average, posterImageURL: poster_path, backdropImageURL : backdrop_path, overview: overview, tvID: tvId)
                     
                     
                     self.tvList.append(data)
                 }
                 
                 self.hud.dismiss(animated: true)
-                self.searchTVCollectionView.reloadData()
+                self.introCollectionView.reloadData()
                 
             case .failure(let error):
                 self.hud.dismiss(animated: true)
                 print(error)
-                
             }
         }
-        
         AF.request(genreURL, method: .get).validate(statusCode: 200...400).responseJSON { response in
-                    switch response.result {
-                    case .success(let value):
-                        let json = JSON(value)
-                            //print("JSON: \(json)")
-                        
-                        for tvGenre in json["genres"].arrayValue {
-                             
-                            self.genreList.updateValue(tvGenre["name"].stringValue, forKey: tvGenre["id"].intValue)
-                        }
-                        self.hud.dismiss(animated: true)
-                        self.searchTVCollectionView.reloadData()
-                        
-                    case .failure(let error):
-                        self.hud.dismiss(animated: true)
-                        print(error)
-                    }
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                //print("JSON: \(json)")
+                
+                for tvGenre in json["genres"].arrayValue {
                     
+                    self.genreList.updateValue(tvGenre["name"].stringValue, forKey: tvGenre["id"].intValue)
                 }
-        
+                self.hud.dismiss(animated: true)
+                self.introCollectionView.reloadData()
+                
+            case .failure(let error):
+                self.hud.dismiss(animated: true)
+                print(error)
+            }
+        }
     }
-    
-    func designNavibar() {
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "list.triangle"), style: .plain, target: nil, action: nil)
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"), style: .plain, target: nil, action: nil)
-    }
-    
-    
     
     
 }
-// cell layout
-extension SearchTVViewController {
+
+// CollectionView Cell Layout
+extension IntroViewController {
     
     func collectionViewLayout() {
         
@@ -130,72 +125,73 @@ extension SearchTVViewController {
         layout.minimumLineSpacing = spacing * 3
         layout.minimumInteritemSpacing = spacing * 3
         
-        searchTVCollectionView.collectionViewLayout = layout
-        
+        introCollectionView.collectionViewLayout = layout
     }
-}
-
-//페이지 네이션
-extension SearchTVViewController : UICollectionViewDataSourcePrefetching {
-    
-    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
-        for indexPath in indexPaths {
-            if tvList.count - 1 == indexPath.item && tvList.count < totalPage {
-                startPage += 1
-                requestData()
-                
-            }
-        }
-    }
-    // 취소하는 기능 구현해야 함
-//    func collectionView(_ collectionView: UICollectionView, cancelPrefetchingForItemsAt indexPaths: [IndexPath]) {
-//        //print("===취소\(indexPaths)")
-//    }
     
 }
 
-// CollectionView Delegate, DataSource
-extension SearchTVViewController : UICollectionViewDelegate, UICollectionViewDataSource {
+// CollectionView delegate, datasource protocol
+extension IntroViewController : UICollectionViewDelegate, UICollectionViewDataSource {
+    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        tvList.count
+        return tvList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        guard let cell = searchTVCollectionView.dequeueReusableCell(withReuseIdentifier: SearchTVCollectionViewCell.identifier, for: indexPath) as? SearchTVCollectionViewCell else { return UICollectionViewCell() }
+        guard let cell = introCollectionView.dequeueReusableCell(withReuseIdentifier: IntroCollectionViewCell.identifier, for: indexPath) as? IntroCollectionViewCell else { return UICollectionViewCell() }
         
-        //cell.designBackground()
-        
-        
-        cell.firstDateLabel.text = tvList[indexPath.item].firstDate
+        cell.firstDayLabel.text = tvList[indexPath.item].firstDate
         cell.tvNameLabel.text = tvList[indexPath.item].tvName
-        let url = URL(string: EndPoint.tmdbImageUrl+tvList[indexPath.item].imageURL)
+        let url = URL(string: EndPoint.tmdbImageUrl+tvList[indexPath.item].posterImageURL)
         cell.tvImageView.kf.setImage(with: url)
         cell.gradeLabel.text = String(format: "%.1f", tvList[indexPath.item].grade)
+        
+        cell.firstDayLabel.backgroundColor = .white
+        cell.genreLabel.backgroundColor = .white
         
         for (key, value) in genreList {
             if tvList[indexPath.row].genre == key {
                 cell.genreLabel.text = "# \(value)"
             }
         }
-        
-        searchTVCollectionView.reloadData()
+        cell.backgroundColor = .darkGray
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("===============================")
+        
         let sb = UIStoryboard(name: "DetailTV", bundle: nil)
 
         let vc = sb.instantiateViewController(withIdentifier: DetailTVViewController.identifier) as! DetailTVViewController
 
         vc.tvId = tvList[indexPath.item].tvID
-        vc.overview = tvList[indexPath.row].overview
-
+        vc.overview = tvList[indexPath.item].overview
+        vc.tvTitle = tvList[indexPath.item].tvName
+        vc.backdropURL = tvList[indexPath.item].backdropImageURL
+        vc.posterURL = tvList[indexPath.item].posterImageURL
+        
         self.navigationController?.pushViewController(vc, animated: true)
     }
-
+    
+    
+    
 }
 
+//page nation
+extension IntroViewController : UICollectionViewDataSourcePrefetching {
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        
+        for indexPath in indexPaths {
+            if tvList.count - 1 == indexPath.item && tvList.count < totalPage {
+                startPage += 1
+                requestData()
+            }
+        }
+    }
+    
+    
+    
+}

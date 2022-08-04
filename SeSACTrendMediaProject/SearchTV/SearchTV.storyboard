@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zME-oe-52U">
-                                <rect key="frame" x="0.0" y="106" width="414" height="790"/>
+                                <rect key="frame" x="0.0" y="106" width="414" height="756"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="XFI-Ua-oRq">
                                     <size key="itemSize" width="361" height="408"/>
@@ -205,6 +205,7 @@
                                                     </constraints>
                                                 </view>
                                             </subviews>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstItem="ju2-9b-zFU" firstAttribute="leading" secondItem="DeQ-zg-qia" secondAttribute="leading" id="19x-a8-evC"/>
                                                 <constraint firstAttribute="bottom" secondItem="ju2-9b-zFU" secondAttribute="bottom" id="BPS-Wp-rdA"/>
@@ -217,13 +218,11 @@
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="361" height="408"/>
                                         <connections>
-                                            <outlet property="cuttingView" destination="ju2-9b-zFU" id="mpY-gN-CbS"/>
                                             <outlet property="firstDateLabel" destination="97F-2Z-iba" id="aws-bw-3Cd"/>
                                             <outlet property="genreLabel" destination="BPl-05-8d1" id="KNe-pK-4cK"/>
                                             <outlet property="getDetailLabel" destination="axe-Kk-1AH" id="cZg-DF-PmT"/>
                                             <outlet property="gradeLabel" destination="YiM-TO-TBV" id="Hq3-1m-XdH"/>
                                             <outlet property="gradeTitleLabel" destination="3rx-H9-V0U" id="kZu-L8-ccj"/>
-                                            <outlet property="shadowView" destination="3Sb-gm-ayW" id="305-eG-1qd"/>
                                             <outlet property="tvImageView" destination="aAw-yL-7yh" id="Ig2-Dr-0gc"/>
                                             <outlet property="tvNameLabel" destination="Cvm-mR-1MA" id="fK2-2S-TxG"/>
                                         </connections>
@@ -236,8 +235,8 @@
                         <constraints>
                             <constraint firstItem="zME-oe-52U" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="9Zc-DF-XX3"/>
                             <constraint firstItem="zME-oe-52U" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="18" id="IBV-kY-gq9"/>
+                            <constraint firstItem="zME-oe-52U" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="Lxv-Za-SH4"/>
                             <constraint firstItem="zME-oe-52U" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="U0q-s9-jDS"/>
-                            <constraint firstAttribute="bottom" secondItem="zME-oe-52U" secondAttribute="bottom" id="ydR-fg-fJe"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="KtO-SM-u4X"/>
@@ -248,22 +247,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="955.07246376811599" y="71.651785714285708"/>
-        </scene>
-        <!--SearchTV View Controller-->
-        <scene sceneID="9RI-Vp-Pq2">
-            <objects>
-                <viewController id="xEx-OQ-QX3" customClass="SearchTVViewController" customModule="SeSACTrendMediaProject" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="caA-ks-9bZ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="YJz-Lk-WNp"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="Acs-Pn-qko"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cVx-n4-hWY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="955" y="754"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="acs-HN-oy1">
@@ -282,24 +265,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="90Y-bQ-cjT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="44.927536231884062" y="71.651785714285708"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="Gmf-6R-nck">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YcE-39-wWD" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7I2-0y-6NP">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="xEx-OQ-QX3" kind="relationship" relationship="rootViewController" id="W3u-Y2-tbP"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Vg9-3J-ToR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="45" y="754"/>
         </scene>
     </scenes>
     <resources>

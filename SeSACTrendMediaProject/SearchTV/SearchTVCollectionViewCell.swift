@@ -22,11 +22,9 @@ class SearchTVCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var getDetailLabel: UILabel!
     
-    @IBOutlet weak var cuttingView: UIView!
-    @IBOutlet weak var shadowView: UIView!
     
     
-        
+    
 //    func designBackground() {
 //        
 //        shadowView.layer.borderWidth = 1

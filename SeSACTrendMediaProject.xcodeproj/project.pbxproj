@@ -17,6 +17,11 @@
 		25286DC22899F828001A4C00 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25286DC12899F828001A4C00 /* SearchViewController.swift */; };
 		25286DC42899F88D001A4C00 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25286DC32899F88D001A4C00 /* APIKey.swift */; };
 		25286DC82899FAAC001A4C00 /* Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25286DC72899FAAC001A4C00 /* Example.swift */; };
+		2528B9C5289C31930053DD77 /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2528B9C4289C31930053DD77 /* Intro.storyboard */; };
+		2528B9C7289C31CF0053DD77 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2528B9C6289C31CF0053DD77 /* IntroViewController.swift */; };
+		2528B9CA289C32210053DD77 /* IntroCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2528B9C8289C32210053DD77 /* IntroCollectionViewCell.swift */; };
+		2528B9CB289C32210053DD77 /* IntroCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2528B9C9289C32210053DD77 /* IntroCollectionViewCell.xib */; };
+		2528B9CD289C33430053DD77 /* TvModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2528B9CC289C33430053DD77 /* TvModel.swift */; };
 		25A2A429289A5C03009DC92B /* SearchTV.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25A2A428289A5C03009DC92B /* SearchTV.storyboard */; };
 		25A2A42B289A5C33009DC92B /* SearchTVViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A2A42A289A5C33009DC92B /* SearchTVViewController.swift */; };
 		25A2A42F289A6971009DC92B /* SearchTVCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A2A42E289A6971009DC92B /* SearchTVCollectionViewCell.swift */; };
@@ -49,6 +54,11 @@
 		25286DC12899F828001A4C00 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		25286DC32899F88D001A4C00 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = APIKey.swift; path = SeSACTrendMediaProject/Resource/APIKey.swift; sourceTree = SOURCE_ROOT; };
 		25286DC72899FAAC001A4C00 /* Example.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Example.swift; sourceTree = "<group>"; };
+		2528B9C4289C31930053DD77 /* Intro.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Intro.storyboard; sourceTree = "<group>"; };
+		2528B9C6289C31CF0053DD77 /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
+		2528B9C8289C32210053DD77 /* IntroCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroCollectionViewCell.swift; sourceTree = "<group>"; };
+		2528B9C9289C32210053DD77 /* IntroCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IntroCollectionViewCell.xib; sourceTree = "<group>"; };
+		2528B9CC289C33430053DD77 /* TvModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvModel.swift; sourceTree = "<group>"; };
 		25A2A428289A5C03009DC92B /* SearchTV.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchTV.storyboard; sourceTree = "<group>"; };
 		25A2A42A289A5C33009DC92B /* SearchTVViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTVViewController.swift; sourceTree = "<group>"; };
 		25A2A42E289A6971009DC92B /* SearchTVCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTVCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -111,6 +121,7 @@
 				25286DB92899F6D1001A4C00 /* Info.plist */,
 				25286DC12899F828001A4C00 /* SearchViewController.swift */,
 				25A2A425289A5B68009DC92B /* SearchTV */,
+				2528B9C3289C316E0053DD77 /* Intro */,
 				25A2A446289BB4CA009DC92B /* DetailTV */,
 			);
 			path = SeSACTrendMediaProject;
@@ -131,6 +142,18 @@
 				25286DC72899FAAC001A4C00 /* Example.swift */,
 			);
 			path = Key;
+			sourceTree = "<group>";
+		};
+		2528B9C3289C316E0053DD77 /* Intro */ = {
+			isa = PBXGroup;
+			children = (
+				2528B9C4289C31930053DD77 /* Intro.storyboard */,
+				2528B9C6289C31CF0053DD77 /* IntroViewController.swift */,
+				2528B9C8289C32210053DD77 /* IntroCollectionViewCell.swift */,
+				2528B9C9289C32210053DD77 /* IntroCollectionViewCell.xib */,
+				2528B9CC289C33430053DD77 /* TvModel.swift */,
+			);
+			path = Intro;
 			sourceTree = "<group>";
 		};
 		25A2A425289A5B68009DC92B /* SearchTV */ = {
@@ -238,10 +261,12 @@
 			files = (
 				25A2A45A289BBDB9009DC92B /* TVCastTableViewCell.xib in Resources */,
 				25286DC02899F7D4001A4C00 /* .gitignore in Resources */,
+				2528B9C5289C31930053DD77 /* Intro.storyboard in Resources */,
 				25286DB82899F6D1001A4C00 /* LaunchScreen.storyboard in Resources */,
 				25A2A456289BBDA1009DC92B /* TVOverviewTableViewCell.xib in Resources */,
 				25A2A429289A5C03009DC92B /* SearchTV.storyboard in Resources */,
 				25A2A44A289BB508009DC92B /* DetailTV.storyboard in Resources */,
+				2528B9CB289C32210053DD77 /* IntroCollectionViewCell.xib in Resources */,
 				25286DB52899F6D1001A4C00 /* Assets.xcassets in Resources */,
 				25286DB32899F6CE001A4C00 /* Main.storyboard in Resources */,
 			);
@@ -261,14 +286,17 @@
 				25A2A43A289A6B34009DC92B /* TVModel.swift in Sources */,
 				25A2A455289BBDA1009DC92B /* TVOverviewTableViewCell.swift in Sources */,
 				25A2A461289BCA13009DC92B /* CastModel.swift in Sources */,
+				2528B9CD289C33430053DD77 /* TvModel.swift in Sources */,
 				25A2A42F289A6971009DC92B /* SearchTVCollectionViewCell.swift in Sources */,
 				25286DC22899F828001A4C00 /* SearchViewController.swift in Sources */,
 				25286DAE2899F6CE001A4C00 /* SceneDelegate.swift in Sources */,
 				25A2A459289BBDB9009DC92B /* TVCastTableViewCell.swift in Sources */,
+				2528B9CA289C32210053DD77 /* IntroCollectionViewCell.swift in Sources */,
 				25A2A44C289BB522009DC92B /* DetailTVViewController.swift in Sources */,
 				25A2A45D289BC011009DC92B /* ReusableViewProtocol.swift in Sources */,
 				25A2A42B289A5C33009DC92B /* SearchTVViewController.swift in Sources */,
 				25286DC42899F88D001A4C00 /* APIKey.swift in Sources */,
+				2528B9C7289C31CF0053DD77 /* IntroViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,7 +448,7 @@
 				INFOPLIST_FILE = SeSACTrendMediaProject/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = SearchTV;
+				INFOPLIST_KEY_UIMainStoryboardFile = Intro;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -448,7 +476,7 @@
 				INFOPLIST_FILE = SeSACTrendMediaProject/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = SearchTV;
+				INFOPLIST_KEY_UIMainStoryboardFile = Intro;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

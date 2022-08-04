@@ -13,3 +13,9 @@ struct CastModel {
     let actorName: String
     let actorRealName: String
 }
+
+struct detailImageString {
+    
+    let backdropImage: String?
+    let posterImage: String?
+}

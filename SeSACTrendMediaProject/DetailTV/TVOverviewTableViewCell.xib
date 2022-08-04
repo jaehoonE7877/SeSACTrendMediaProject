@@ -17,7 +17,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Re-XB-vux">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="391"/>
+                        <rect key="frame" x="16" y="0.0" width="288" height="391"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -25,8 +25,8 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="0Re-XB-vux" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="3LM-JW-drQ"/>
-                    <constraint firstAttribute="trailing" secondItem="0Re-XB-vux" secondAttribute="trailing" id="Qdq-VP-hpw"/>
-                    <constraint firstItem="0Re-XB-vux" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Tkq-rf-VEz"/>
+                    <constraint firstAttribute="trailing" secondItem="0Re-XB-vux" secondAttribute="trailing" constant="16" id="Qdq-VP-hpw"/>
+                    <constraint firstItem="0Re-XB-vux" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="Tkq-rf-VEz"/>
                     <constraint firstAttribute="bottom" secondItem="0Re-XB-vux" secondAttribute="bottom" id="wTg-tR-dJv"/>
                 </constraints>
             </tableViewCellContentView>
