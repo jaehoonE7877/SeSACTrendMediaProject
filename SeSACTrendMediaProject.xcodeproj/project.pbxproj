@@ -17,7 +17,6 @@
 		25286DC22899F828001A4C00 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25286DC12899F828001A4C00 /* SearchViewController.swift */; };
 		25286DC42899F88D001A4C00 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25286DC32899F88D001A4C00 /* APIKey.swift */; };
 		25286DC82899FAAC001A4C00 /* Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25286DC72899FAAC001A4C00 /* Example.swift */; };
-		25286DCA2899FAB7001A4C00 /* Example2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25286DC92899FAB7001A4C00 /* Example2.swift */; };
 		25A2A429289A5C03009DC92B /* SearchTV.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25A2A428289A5C03009DC92B /* SearchTV.storyboard */; };
 		25A2A42B289A5C33009DC92B /* SearchTVViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A2A42A289A5C33009DC92B /* SearchTVViewController.swift */; };
 		25A2A42F289A6971009DC92B /* SearchTVCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A2A42E289A6971009DC92B /* SearchTVCollectionViewCell.swift */; };
@@ -50,7 +49,6 @@
 		25286DC12899F828001A4C00 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		25286DC32899F88D001A4C00 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = APIKey.swift; path = SeSACTrendMediaProject/Resource/APIKey.swift; sourceTree = SOURCE_ROOT; };
 		25286DC72899FAAC001A4C00 /* Example.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Example.swift; sourceTree = "<group>"; };
-		25286DC92899FAB7001A4C00 /* Example2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Example2.swift; sourceTree = "<group>"; };
 		25A2A428289A5C03009DC92B /* SearchTV.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchTV.storyboard; sourceTree = "<group>"; };
 		25A2A42A289A5C33009DC92B /* SearchTVViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTVViewController.swift; sourceTree = "<group>"; };
 		25A2A42E289A6971009DC92B /* SearchTVCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTVCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -121,7 +119,6 @@
 		25286DC52899FA17001A4C00 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				25286DC92899FAB7001A4C00 /* Example2.swift */,
 				25286DC32899F88D001A4C00 /* APIKey.swift */,
 				25A2A45E289BC2FA009DC92B /* Constant.swift */,
 			);
@@ -264,7 +261,6 @@
 				25A2A43A289A6B34009DC92B /* TVModel.swift in Sources */,
 				25A2A455289BBDA1009DC92B /* TVOverviewTableViewCell.swift in Sources */,
 				25A2A461289BCA13009DC92B /* CastModel.swift in Sources */,
-				25286DCA2899FAB7001A4C00 /* Example2.swift in Sources */,
 				25A2A42F289A6971009DC92B /* SearchTVCollectionViewCell.swift in Sources */,
 				25286DC22899F828001A4C00 /* SearchViewController.swift in Sources */,
 				25286DAE2899F6CE001A4C00 /* SceneDelegate.swift in Sources */,

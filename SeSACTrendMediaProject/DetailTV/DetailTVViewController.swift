@@ -110,12 +110,11 @@ extension DetailTVViewController: UITableViewDelegate, UITableViewDataSource {
             
             guard let cell = detailTvTableView.dequeueReusableCell(withIdentifier: CellIdentifier.detailTvOverviewCell, for: indexPath) as? TVOverviewTableViewCell else { return UITableViewCell() }
             
-            
-            
             cell.overviewLabel.text = overview
             return cell
             
         } else {
+            
             guard let cell = detailTvTableView.dequeueReusableCell(withIdentifier: CellIdentifier.detailTvCastCell, for: indexPath) as? TVCastTableViewCell else { return UITableViewCell() }
             
             return cell

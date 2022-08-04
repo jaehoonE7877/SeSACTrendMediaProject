@@ -32,10 +32,9 @@ class SearchTVViewController: UIViewController {
         
         searchTVCollectionView.prefetchDataSource = self
         
-        _ = collectionViewLayout()
+        collectionViewLayout()
         designNavibar()
         requestData()
-        
         
     }
 
@@ -106,15 +105,24 @@ class SearchTVViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"), style: .plain, target: nil, action: nil)
     }
     
+    
+    @IBAction func detailButtonTapped(_ sender: UIButton) {
+        
+        
+
+    }
+    
+    
+    
 }
 // cell layout
 extension SearchTVViewController {
     
-    func collectionViewLayout() -> UICollectionViewFlowLayout {
+    func collectionViewLayout() {
         
         let layout = UICollectionViewFlowLayout()
         
-        let spacing: CGFloat = 24
+        let spacing: CGFloat = 20
         
         let width = UIScreen.main.bounds.width - (spacing * 2)
         
@@ -129,57 +137,8 @@ extension SearchTVViewController {
         
         searchTVCollectionView.collectionViewLayout = layout
         
-        return layout
     }
 }
-
-
-// CollectionView Delegate, DataSource
-extension SearchTVViewController : UICollectionViewDelegate, UICollectionViewDataSource {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        tvList.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        guard let cell = searchTVCollectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifier.searchTvCell, for: indexPath) as? SearchTVCollectionViewCell else { return UICollectionViewCell() }
-        
-        cell.designBackground()
-        
-        
-        cell.firstDateLabel.text = tvList[indexPath.item].firstDate
-        cell.tvNameLabel.text = tvList[indexPath.item].tvName
-        let url = URL(string: EndPoint.tmdbImageUrl+tvList[indexPath.item].imageURL)
-        cell.tvImageView.kf.setImage(with: url)
-        cell.gradeLabel.text = String(format: "%.1f", tvList[indexPath.item].grade) 
-        
-        for (key, value) in genreList {
-            if tvList[indexPath.row].genre == key {
-                cell.genreLabel.text = "# \(value)"
-            }
-        }
-        
-        searchTVCollectionView.reloadData()
-        
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        let sb = UIStoryboard(name: "DetailTV", bundle: nil)
-        
-        let vc = sb.instantiateViewController(withIdentifier: DetailTVViewController.identifier) as! DetailTVViewController
-        
-        vc.tvId = tvList[indexPath.item].tvID
-        vc.overview = tvList[indexPath.item].overview
-        
-        self.navigationController?.pushViewController(vc, animated: true)
-        
-    }
-    
-}
-
 
 //페이지 네이션
 extension SearchTVViewController : UICollectionViewDataSourcePrefetching {
@@ -194,9 +153,55 @@ extension SearchTVViewController : UICollectionViewDataSourcePrefetching {
         }
     }
     // 취소하는 기능 구현해야 함
-    func collectionView(_ collectionView: UICollectionView, cancelPrefetchingForItemsAt indexPaths: [IndexPath]) {
-        //print("===취소\(indexPaths)")
-    }
+//    func collectionView(_ collectionView: UICollectionView, cancelPrefetchingForItemsAt indexPaths: [IndexPath]) {
+//        //print("===취소\(indexPaths)")
+//    }
     
 }
+
+// CollectionView Delegate, DataSource
+extension SearchTVViewController : UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        tvList.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        guard let cell = searchTVCollectionView.dequeueReusableCell(withReuseIdentifier: SearchTVCollectionViewCell.identifier, for: indexPath) as? SearchTVCollectionViewCell else { return UICollectionViewCell() }
+        
+        //cell.designBackground()
+        
+        
+        cell.firstDateLabel.text = tvList[indexPath.item].firstDate
+        cell.tvNameLabel.text = tvList[indexPath.item].tvName
+        let url = URL(string: EndPoint.tmdbImageUrl+tvList[indexPath.item].imageURL)
+        cell.tvImageView.kf.setImage(with: url)
+        cell.gradeLabel.text = String(format: "%.1f", tvList[indexPath.item].grade)
+        
+        for (key, value) in genreList {
+            if tvList[indexPath.row].genre == key {
+                cell.genreLabel.text = "# \(value)"
+            }
+        }
+        
+        searchTVCollectionView.reloadData()
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("===============================")
+        let sb = UIStoryboard(name: "DetailTV", bundle: nil)
+
+        let vc = sb.instantiateViewController(withIdentifier: DetailTVViewController.identifier) as! DetailTVViewController
+
+        vc.tvId = tvList[indexPath.item].tvID
+        vc.overview = tvList[indexPath.row].overview
+
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+
+}
+    
 
