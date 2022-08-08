@@ -24,6 +24,8 @@ class DetailTVViewController: UIViewController {
     var backdropURL: String?
     var posterURL: String?
     
+    var isExpanded = false
+    
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var posterImageView: UIImageView!
     @IBOutlet weak var tvTitleLabel: UILabel!
@@ -44,45 +46,29 @@ class DetailTVViewController: UIViewController {
         detailTvTableView.register(UINib(nibName: TVCastTableViewCell.reuseIdentifier , bundle: nil), forCellReuseIdentifier: TVCastTableViewCell.reuseIdentifier)
         
         designImageView()
-        requestData()
-        
+        searchCast()
     }
     
-    
-    
-    func requestData() {
+    func searchCast() {
         
         hud.show(in: view)
         
         guard let tvId = tvId else { return }
         
-        let url = EndPoint.detailUrl + "\(tvId)/credits?api_key=\(APIKey.key)&language=en-US"
-        let imageUrl =  EndPoint.detailUrl + "\(tvId)/images?api_key=\(APIKey.key)"
-        
-        AF.request(url, method: .get).validate().responseJSON { response in //앞쪽 접두어 AF로 바꿔야 함
-            switch response.result {
-            case .success(let value):
-                let json = JSON(value)
-                //print("JSON: \(json)")
+        TmdbAPIManager.shared.requestData(type: .cast, startPage: 0, tvId: tvId) { json in
+            
+            for item in json["cast"] {
                 
-                for item in json["cast"] {
-                    
-                    let actorImage = item.1["profile_path"].stringValue
-                    let actorName = item.1["character"].stringValue
-                    let actorRealName = item.1["name"].stringValue
-                    
-                    let data = CastModel(actorImage: actorImage, actorName: actorName, actorRealName: actorRealName)
-                    
-                    self.detailTvList.append(data)
-                }
-                self.hud.dismiss(animated: true)
-                self.detailTvTableView.reloadData()
+                let actorImage = item.1["profile_path"].stringValue
+                let actorName = item.1["character"].stringValue
+                let actorRealName = item.1["name"].stringValue
                 
+                let data = CastModel(actorImage: actorImage, actorName: actorName, actorRealName: actorRealName)
                 
-            case .failure(let error):
-                self.hud.dismiss(animated: true)
-                print(error)
+                self.detailTvList.append(data)
             }
+            self.detailTvTableView.reloadData()
+            self.hud.dismiss(animated: true)
         }
     }
     
@@ -100,9 +86,9 @@ extension DetailTVViewController {
         guard let posterURL = posterURL else { return }
         
         
-        let backImageUrl = URL(string: EndPoint.tmdbImageUrl+backdropURL)
+        let backImageUrl = URL(string: Endpoint.tmdbImageUrl+backdropURL)
         mainImageView.kf.setImage(with: backImageUrl)
-        let posterImageUrl = URL(string: EndPoint.tmdbImageUrl+posterURL)
+        let posterImageUrl = URL(string: Endpoint.tmdbImageUrl+posterURL)
         posterImageView.kf.setImage(with: posterImageUrl)
         
     }
@@ -114,12 +100,11 @@ extension DetailTVViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
-        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
-            return 150
+            return 100
         } else {
             return 96
         }
@@ -134,11 +119,7 @@ extension DetailTVViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
-            return 1
-        } else {
-            return detailTvList.count
-        }
+        section == 0 ? 1 : detailTvList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -147,27 +128,34 @@ extension DetailTVViewController: UITableViewDelegate, UITableViewDataSource {
         
         if indexPath.section == 0 {
             
-            guard let cell = detailTvTableView.dequeueReusableCell(withIdentifier: CellIdentifier.detailTvOverviewCell, for: indexPath) as? TVOverviewTableViewCell else { return UITableViewCell() }
-            cell.overviewLabel.numberOfLines = 0
+            guard let cell = detailTvTableView.dequeueReusableCell(withIdentifier: TVOverviewTableViewCell.identifier, for: indexPath) as? TVOverviewTableViewCell else { return UITableViewCell() }
+            cell.overviewLabel.numberOfLines = isExpanded ? 0 : 2
             cell.overviewLabel.text = overview
             
             return cell
             
         } else {
             
-            guard let cell = detailTvTableView.dequeueReusableCell(withIdentifier: CellIdentifier.detailTvCastCell, for: indexPath) as? TVCastTableViewCell else { return UITableViewCell() }
+            guard let cell = detailTvTableView.dequeueReusableCell(withIdentifier: TVCastTableViewCell.identifier, for: indexPath) as? TVCastTableViewCell else { return UITableViewCell() }
                 
             cell.actorRealNameLabel.text = detailTvList[indexPath.item].actorRealName
             cell.actingNameLabel.font = UIFont.boldSystemFont(ofSize: 17)
             cell.actingNameLabel.text = detailTvList[indexPath.item].actorName
-            cell.actingNameLabel.textColor = UIColor.systemGray4
-            let imageUrl = URL(string: EndPoint.tmdbImageUrl+detailTvList[indexPath.item].actorImage)
+            cell.actingNameLabel.textColor = UIColor.systemGray2
+            let imageUrl = URL(string: Endpoint.tmdbImageUrl+detailTvList[indexPath.item].actorImage)
             cell.actorImageView.kf.setImage(with: imageUrl)
             cell.actorImageView.layer.cornerRadius = 12
                 
             return cell
         }
         
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 0 {
+            isExpanded = !isExpanded
+            detailTvTableView.reloadData()
+        }
     }
 }
 

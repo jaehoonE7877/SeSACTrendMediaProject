@@ -8,7 +8,8 @@
 import UIKit
 
 class TVCastTableViewCell: UITableViewCell {
-
+    
+    static let identifier = "TVCastTableViewCell"
     
     @IBOutlet weak var actorImageView: UIImageView!
     @IBOutlet weak var actorRealNameLabel: UILabel!

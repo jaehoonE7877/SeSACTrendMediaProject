@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		25151BF628A10676009A7A29 /* TmdbAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25151BF528A10676009A7A29 /* TmdbAPIManager.swift */; };
+		25151BF928A1176C009A7A29 /* Trailer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25151BF828A1176C009A7A29 /* Trailer.storyboard */; };
+		25151BFB28A117A7009A7A29 /* TrailerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25151BFA28A117A7009A7A29 /* TrailerViewController.swift */; };
 		25286DAC2899F6CE001A4C00 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25286DAB2899F6CE001A4C00 /* AppDelegate.swift */; };
 		25286DAE2899F6CE001A4C00 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25286DAD2899F6CE001A4C00 /* SceneDelegate.swift */; };
 		25286DB02899F6CE001A4C00 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25286DAF2899F6CE001A4C00 /* ViewController.swift */; };
@@ -22,13 +25,9 @@
 		2528B9CA289C32210053DD77 /* IntroCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2528B9C8289C32210053DD77 /* IntroCollectionViewCell.swift */; };
 		2528B9CB289C32210053DD77 /* IntroCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2528B9C9289C32210053DD77 /* IntroCollectionViewCell.xib */; };
 		2528B9CD289C33430053DD77 /* TvModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2528B9CC289C33430053DD77 /* TvModel.swift */; };
-		25A2A429289A5C03009DC92B /* SearchTV.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25A2A428289A5C03009DC92B /* SearchTV.storyboard */; };
-		25A2A42B289A5C33009DC92B /* SearchTVViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A2A42A289A5C33009DC92B /* SearchTVViewController.swift */; };
-		25A2A42F289A6971009DC92B /* SearchTVCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A2A42E289A6971009DC92B /* SearchTVCollectionViewCell.swift */; };
 		25A2A432289A6AA6009DC92B /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 25A2A431289A6AA6009DC92B /* Alamofire */; };
 		25A2A435289A6AB5009DC92B /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 25A2A434289A6AB5009DC92B /* SwiftyJSON */; };
 		25A2A438289A6AC7009DC92B /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 25A2A437289A6AC7009DC92B /* Kingfisher */; };
-		25A2A43A289A6B34009DC92B /* TVModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A2A439289A6B34009DC92B /* TVModel.swift */; };
 		25A2A445289BAA0C009DC92B /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 25A2A444289BAA0C009DC92B /* JGProgressHUD */; };
 		25A2A44A289BB508009DC92B /* DetailTV.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25A2A449289BB508009DC92B /* DetailTV.storyboard */; };
 		25A2A44C289BB522009DC92B /* DetailTVViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A2A44B289BB522009DC92B /* DetailTVViewController.swift */; };
@@ -37,11 +36,13 @@
 		25A2A459289BBDB9009DC92B /* TVCastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A2A457289BBDB9009DC92B /* TVCastTableViewCell.swift */; };
 		25A2A45A289BBDB9009DC92B /* TVCastTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25A2A458289BBDB9009DC92B /* TVCastTableViewCell.xib */; };
 		25A2A45D289BC011009DC92B /* ReusableViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A2A45C289BC011009DC92B /* ReusableViewProtocol.swift */; };
-		25A2A45F289BC2FA009DC92B /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A2A45E289BC2FA009DC92B /* Constant.swift */; };
 		25A2A461289BCA13009DC92B /* CastModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A2A460289BCA13009DC92B /* CastModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		25151BF528A10676009A7A29 /* TmdbAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TmdbAPIManager.swift; sourceTree = "<group>"; };
+		25151BF828A1176C009A7A29 /* Trailer.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Trailer.storyboard; sourceTree = "<group>"; };
+		25151BFA28A117A7009A7A29 /* TrailerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailerViewController.swift; sourceTree = "<group>"; };
 		25286DA82899F6CE001A4C00 /* SeSACTrendMediaProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSACTrendMediaProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25286DAB2899F6CE001A4C00 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		25286DAD2899F6CE001A4C00 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,10 +60,6 @@
 		2528B9C8289C32210053DD77 /* IntroCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroCollectionViewCell.swift; sourceTree = "<group>"; };
 		2528B9C9289C32210053DD77 /* IntroCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IntroCollectionViewCell.xib; sourceTree = "<group>"; };
 		2528B9CC289C33430053DD77 /* TvModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvModel.swift; sourceTree = "<group>"; };
-		25A2A428289A5C03009DC92B /* SearchTV.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchTV.storyboard; sourceTree = "<group>"; };
-		25A2A42A289A5C33009DC92B /* SearchTVViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTVViewController.swift; sourceTree = "<group>"; };
-		25A2A42E289A6971009DC92B /* SearchTVCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTVCollectionViewCell.swift; sourceTree = "<group>"; };
-		25A2A439289A6B34009DC92B /* TVModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVModel.swift; sourceTree = "<group>"; };
 		25A2A449289BB508009DC92B /* DetailTV.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailTV.storyboard; sourceTree = "<group>"; };
 		25A2A44B289BB522009DC92B /* DetailTVViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTVViewController.swift; sourceTree = "<group>"; };
 		25A2A453289BBDA1009DC92B /* TVOverviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVOverviewTableViewCell.swift; sourceTree = "<group>"; };
@@ -70,7 +67,6 @@
 		25A2A457289BBDB9009DC92B /* TVCastTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVCastTableViewCell.swift; sourceTree = "<group>"; };
 		25A2A458289BBDB9009DC92B /* TVCastTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TVCastTableViewCell.xib; sourceTree = "<group>"; };
 		25A2A45C289BC011009DC92B /* ReusableViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableViewProtocol.swift; sourceTree = "<group>"; };
-		25A2A45E289BC2FA009DC92B /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		25A2A460289BCA13009DC92B /* CastModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -89,6 +85,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		25151BF728A1173A009A7A29 /* Trailer */ = {
+			isa = PBXGroup;
+			children = (
+				25151BF828A1176C009A7A29 /* Trailer.storyboard */,
+				25151BFA28A117A7009A7A29 /* TrailerViewController.swift */,
+			);
+			path = Trailer;
+			sourceTree = "<group>";
+		};
 		25286D9F2899F6CE001A4C00 = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +114,7 @@
 		25286DAA2899F6CE001A4C00 /* SeSACTrendMediaProject */ = {
 			isa = PBXGroup;
 			children = (
+				2555B9DA28A08C5B0090B983 /* APIManager */,
 				25A2A45B289BBFF3009DC92B /* Protocol */,
 				25286DC62899FA87001A4C00 /* Key */,
 				25286DC52899FA17001A4C00 /* Resource */,
@@ -120,7 +126,7 @@
 				25286DB62899F6D1001A4C00 /* LaunchScreen.storyboard */,
 				25286DB92899F6D1001A4C00 /* Info.plist */,
 				25286DC12899F828001A4C00 /* SearchViewController.swift */,
-				25A2A425289A5B68009DC92B /* SearchTV */,
+				25151BF728A1173A009A7A29 /* Trailer */,
 				2528B9C3289C316E0053DD77 /* Intro */,
 				25A2A446289BB4CA009DC92B /* DetailTV */,
 			);
@@ -131,7 +137,6 @@
 			isa = PBXGroup;
 			children = (
 				25286DC32899F88D001A4C00 /* APIKey.swift */,
-				25A2A45E289BC2FA009DC92B /* Constant.swift */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -156,15 +161,12 @@
 			path = Intro;
 			sourceTree = "<group>";
 		};
-		25A2A425289A5B68009DC92B /* SearchTV */ = {
+		2555B9DA28A08C5B0090B983 /* APIManager */ = {
 			isa = PBXGroup;
 			children = (
-				25A2A428289A5C03009DC92B /* SearchTV.storyboard */,
-				25A2A439289A6B34009DC92B /* TVModel.swift */,
-				25A2A42A289A5C33009DC92B /* SearchTVViewController.swift */,
-				25A2A42E289A6971009DC92B /* SearchTVCollectionViewCell.swift */,
+				25151BF528A10676009A7A29 /* TmdbAPIManager.swift */,
 			);
-			path = SearchTV;
+			path = APIManager;
 			sourceTree = "<group>";
 		};
 		25A2A446289BB4CA009DC92B /* DetailTV */ = {
@@ -264,10 +266,10 @@
 				2528B9C5289C31930053DD77 /* Intro.storyboard in Resources */,
 				25286DB82899F6D1001A4C00 /* LaunchScreen.storyboard in Resources */,
 				25A2A456289BBDA1009DC92B /* TVOverviewTableViewCell.xib in Resources */,
-				25A2A429289A5C03009DC92B /* SearchTV.storyboard in Resources */,
 				25A2A44A289BB508009DC92B /* DetailTV.storyboard in Resources */,
 				2528B9CB289C32210053DD77 /* IntroCollectionViewCell.xib in Resources */,
 				25286DB52899F6D1001A4C00 /* Assets.xcassets in Resources */,
+				25151BF928A1176C009A7A29 /* Trailer.storyboard in Resources */,
 				25286DB32899F6CE001A4C00 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -281,20 +283,18 @@
 			files = (
 				25286DB02899F6CE001A4C00 /* ViewController.swift in Sources */,
 				25286DAC2899F6CE001A4C00 /* AppDelegate.swift in Sources */,
-				25A2A45F289BC2FA009DC92B /* Constant.swift in Sources */,
 				25286DC82899FAAC001A4C00 /* Example.swift in Sources */,
-				25A2A43A289A6B34009DC92B /* TVModel.swift in Sources */,
 				25A2A455289BBDA1009DC92B /* TVOverviewTableViewCell.swift in Sources */,
 				25A2A461289BCA13009DC92B /* CastModel.swift in Sources */,
 				2528B9CD289C33430053DD77 /* TvModel.swift in Sources */,
-				25A2A42F289A6971009DC92B /* SearchTVCollectionViewCell.swift in Sources */,
+				25151BF628A10676009A7A29 /* TmdbAPIManager.swift in Sources */,
 				25286DC22899F828001A4C00 /* SearchViewController.swift in Sources */,
+				25151BFB28A117A7009A7A29 /* TrailerViewController.swift in Sources */,
 				25286DAE2899F6CE001A4C00 /* SceneDelegate.swift in Sources */,
 				25A2A459289BBDB9009DC92B /* TVCastTableViewCell.swift in Sources */,
 				2528B9CA289C32210053DD77 /* IntroCollectionViewCell.swift in Sources */,
 				25A2A44C289BB522009DC92B /* DetailTVViewController.swift in Sources */,
 				25A2A45D289BC011009DC92B /* ReusableViewProtocol.swift in Sources */,
-				25A2A42B289A5C33009DC92B /* SearchTVViewController.swift in Sources */,
 				25286DC42899F88D001A4C00 /* APIKey.swift in Sources */,
 				2528B9C7289C31CF0053DD77 /* IntroViewController.swift in Sources */,
 			);

@@ -35,7 +35,8 @@ class IntroViewController: UIViewController {
         
         designNavibar()
         collectionViewLayout()
-        requestData()
+        searchTrend()
+        
     }
     
     func designNavibar() {
@@ -43,66 +44,51 @@ class IntroViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"), style: .plain, target: nil, action: nil)
     }
     
-    func requestData() {
+    func searchTrend() {
         
         hud.show(in: view)
         
-        let url = EndPoint.tmdbUrl + APIKey.key + "&page=\(startPage)"
-        let genreURL = EndPoint.genreUrl + APIKey.key
-        
-        AF.request(url, method: .get).validate(statusCode: 200...400).responseJSON { response in //앞쪽 접두어 AF로 바꿔야 함
-            switch response.result {
-            case .success(let value):
-                let json = JSON(value)
-                //print("JSON: \(json)")
-                self.totalPage = json["total_pages"].intValue
+        TmdbAPIManager.shared.requestData(type: .trending, startPage: startPage, tvId: 0) { json in
+            
+            self.totalPage = json["total_pages"].intValue
+            
+            for item in json["results"] {
                 
-                for item in json["results"] {
-                    
-                    let first_air_date = item.1["first_air_date"].stringValue
-                    let genre_ids = item.1["genre_ids"][0].intValue
-                    let name = item.1["name"].stringValue
-                    let vote_average = item.1["vote_average"].doubleValue
-                    let poster_path = item.1["poster_path"].stringValue
-                    let backdrop_path = item.1["backdrop_path"].stringValue
-                    let overview = item.1["overview"].stringValue
-                    let tvId = item.1["id"].intValue
-                    
-                    let data = TvModel(firstDate: first_air_date, genre: genre_ids, tvName: name, grade: vote_average, posterImageURL: poster_path, backdropImageURL : backdrop_path, overview: overview, tvID: tvId)
-                    
-                    
-                    self.tvList.append(data)
-                }
+                let first_air_date = item.1["first_air_date"].stringValue
+                let genre_ids = item.1["genre_ids"][0].intValue
+                let name = item.1["name"].stringValue
+                let vote_average = item.1["vote_average"].doubleValue
+                let poster_path = item.1["poster_path"].stringValue
+                let backdrop_path = item.1["backdrop_path"].stringValue
+                let overview = item.1["overview"].stringValue
+                let tvId = item.1["id"].intValue
                 
-                self.hud.dismiss(animated: true)
-                self.introCollectionView.reloadData()
+                let data = TvModel(firstDate: first_air_date, genre: genre_ids, tvName: name, grade: vote_average, posterImageURL: poster_path, backdropImageURL : backdrop_path, overview: overview, tvID: tvId)
                 
-            case .failure(let error):
-                self.hud.dismiss(animated: true)
-                print(error)
+                self.tvList.append(data)
+                
             }
-        }
-        AF.request(genreURL, method: .get).validate(statusCode: 200...400).responseJSON { response in
-            switch response.result {
-            case .success(let value):
-                let json = JSON(value)
-                //print("JSON: \(json)")
-                
-                for tvGenre in json["genres"].arrayValue {
-                    
-                    self.genreList.updateValue(tvGenre["name"].stringValue, forKey: tvGenre["id"].intValue)
-                }
-                self.hud.dismiss(animated: true)
-                self.introCollectionView.reloadData()
-                
-            case .failure(let error):
-                self.hud.dismiss(animated: true)
-                print(error)
-            }
+            
+            self.searchGenre()
         }
     }
     
-    
+    func searchGenre() {
+        
+        TmdbAPIManager.shared.requestData(type: .genre, startPage: startPage, tvId: 0) { json in
+            
+            for tvGenre in json["genres"].arrayValue {
+                self.genreList.updateValue(tvGenre["name"].stringValue, forKey: tvGenre["id"].intValue)
+         
+            }
+            DispatchQueue.main.async {
+                self.introCollectionView.reloadData()
+            }
+            self.hud.dismiss(animated: true)
+        }
+        
+    }
+
 }
 
 // CollectionView Cell Layout
@@ -122,8 +108,8 @@ extension IntroViewController {
         
         layout.sectionInset = UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
         
-        layout.minimumLineSpacing = spacing * 3
-        layout.minimumInteritemSpacing = spacing * 3
+        layout.minimumLineSpacing = spacing * 2
+        layout.minimumInteritemSpacing = spacing * 2
         
         introCollectionView.collectionViewLayout = layout
     }
@@ -144,19 +130,29 @@ extension IntroViewController : UICollectionViewDelegate, UICollectionViewDataSo
         
         cell.firstDayLabel.text = tvList[indexPath.item].firstDate
         cell.tvNameLabel.text = tvList[indexPath.item].tvName
-        let url = URL(string: EndPoint.tmdbImageUrl+tvList[indexPath.item].posterImageURL)
+        let url = URL(string: Endpoint.tmdbImageUrl+tvList[indexPath.item].posterImageURL)
         cell.tvImageView.kf.setImage(with: url)
         cell.gradeLabel.text = String(format: "%.1f", tvList[indexPath.item].grade)
+        cell.overviewLabel.text = tvList[indexPath.item].overview
         
+        cell.tvNameLabel.font = UIFont.boldSystemFont(ofSize: 25)
+        cell.overviewLabel.font = UIFont.systemFont(ofSize: 14)
+        cell.genreLabel.font = UIFont.boldSystemFont(ofSize: 20)
         cell.firstDayLabel.backgroundColor = .white
         cell.genreLabel.backgroundColor = .white
         
+        
         for (key, value) in genreList {
             if tvList[indexPath.row].genre == key {
-                cell.genreLabel.text = "# \(value)"
+                cell.genreLabel.text = "#\(value)"
             }
         }
-        cell.backgroundColor = .darkGray
+        
+        cell.trailerButton.tag = indexPath.row
+        cell.trailerButton.addTarget(self, action: #selector(trailerButtonTapped), for: .touchUpInside)
+        
+        cell.layer2Shadow()
+        
         
         return cell
     }
@@ -176,22 +172,31 @@ extension IntroViewController : UICollectionViewDelegate, UICollectionViewDataSo
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    
+    @objc
+    func trailerButtonTapped(_ sender: UIButton){
+        
+        let sb = UIStoryboard(name: "Trailer", bundle: nil)
+        guard let vc = sb.instantiateViewController(withIdentifier: TrailerViewController.reuseIdentifier) as? TrailerViewController else { return }
+        
+        vc.tvId = tvList[sender.tag].tvID
+        
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     
 }
+
+
 
 //page nation
 extension IntroViewController : UICollectionViewDataSourcePrefetching {
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
         
+        
         for indexPath in indexPaths {
             if tvList.count - 1 == indexPath.item && tvList.count < totalPage {
                 startPage += 1
-                requestData()
+                searchTrend()
             }
         }
     }
-    
-    
-    
 }
