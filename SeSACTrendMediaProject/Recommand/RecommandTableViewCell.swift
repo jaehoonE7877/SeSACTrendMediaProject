@@ -11,14 +11,16 @@ class RecommandTableViewCell: UITableViewCell {
 
     static let identifier = "RecommandTableViewCell"
     
+    
     @IBOutlet weak var recommandCollectionView: UICollectionView!
-    
-    
     @IBOutlet weak var titleLabel: UILabel!
+    
+    var cellWidth = UIScreen.main.bounds.width / 3.6
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+                
         
         setupUI()
         
@@ -35,8 +37,6 @@ class RecommandTableViewCell: UITableViewCell {
     }
     
     func collectionViewLayout() -> UICollectionViewFlowLayout {
-        
-        let cellWidth = UIScreen.main.bounds.width / 3.6
         
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
