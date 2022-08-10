@@ -15,7 +15,7 @@ class RecommandTableViewCell: UITableViewCell {
     @IBOutlet weak var recommandCollectionView: UICollectionView!
     @IBOutlet weak var titleLabel: UILabel!
     
-    var cellWidth = UIScreen.main.bounds.width / 3.6
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,13 +23,20 @@ class RecommandTableViewCell: UITableViewCell {
                 
         
         setupUI()
+        print("RecommandTableViewCell", #function)
+
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
         
+        print("RecommandTableViewCell", #function)
     }
 
     func setupUI() {
         
         titleLabel.font = .boldSystemFont(ofSize: 20)
-        titleLabel.text = "다시보기 추천 콘텐츠"
+        //titleLabel.text = "다시보기 추천 콘텐츠"
         titleLabel.backgroundColor = .clear
         titleLabel.textColor = .systemGray4
         
@@ -40,7 +47,7 @@ class RecommandTableViewCell: UITableViewCell {
         
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.itemSize = CGSize(width: cellWidth , height: cellWidth * 1.33 )
+        layout.itemSize = CGSize(width: 120 , height: 160 )
         
         layout.minimumLineSpacing = 8
         layout.minimumInteritemSpacing = 8

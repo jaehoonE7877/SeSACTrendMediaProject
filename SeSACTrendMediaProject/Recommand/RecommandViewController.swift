@@ -7,21 +7,15 @@
 
 import UIKit
 
+import Kingfisher
 class RecommandViewController: UIViewController {
 
     @IBOutlet weak var recommandTableView: UITableView!
     
-    let mainLabelText = ["오늘 대한민국의 TOP 10 시리즈", "다시보기 추천 콘텐츠", "지금 뜨는 콘텐츠", "오직 넷플릭스 에서", "이태원 클라쓰와 비슷한 콘텐츠", "한국 드라마", "몰아보기 추천 시리즈", "미국 TV 프로그램"]
-    let numArr: [[Int]] = [
-        [Int](1...6),
-        [Int](7...15),
-        [Int](16...24),
-        [Int](25...33),
-        [Int](34...46),
-        [Int](47...62),
-        [Int](63...80),
-        [Int](80...100)
-    ]
+    
+    var recommandList = [[String]]()
+    
+    var top10List = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,15 +25,29 @@ class RecommandViewController: UIViewController {
         
         recommandTableView.register(UINib(nibName: RecommandTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: RecommandTableViewCell.reuseIdentifier)
         
-        
+        TmdbAPIManager.shared.requestPoster { posterList in
+            //dump(posterList)
+            //1. 네트워크 통신 2. 배열 생성 3. 배열에 요소 담기 4. 뷰 등에 표현 5. 뷰 갱신!(reloadData)
+            //self.requestTop10()
+            
+            self.recommandList = posterList
+            self.recommandTableView.reloadData()
+            print("RecommandViewController", #function)
+            
+        }
     }
+    //지금 뜨는 콘텐츠 넣을 방법 생각해보기
+//    func requestTop10() {
+//
+//        TmdbAPIManager.shared.requestData(type: .trending, startPage: 1, tvId: 0) { json in
+//
+//            let data = json["results"].map { $0.1["poster_path"].stringValue }
+//            self.top10List = data
+//        }
+//    }
     
-
-    
-
 }
-
-
+//TableView
 extension RecommandViewController: UITableViewDelegate, UITableViewDataSource {
     
  
@@ -48,7 +56,7 @@ extension RecommandViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return numArr.count
+        return recommandList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -56,7 +64,8 @@ extension RecommandViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: RecommandTableViewCell.identifier, for: indexPath) as? RecommandTableViewCell else { return UITableViewCell() }
         
         cell.backgroundColor = .black
-        cell.titleLabel.text = mainLabelText[indexPath.row]
+        cell.titleLabel.text = "\(TmdbAPIManager.shared.tvList[indexPath.row].0)와 비슷한 콘텐츠"
+        
         
         cell.recommandCollectionView.delegate = self
         cell.recommandCollectionView.dataSource = self
@@ -67,6 +76,7 @@ extension RecommandViewController: UITableViewDelegate, UITableViewDataSource {
         cell.recommandCollectionView.backgroundColor = .black
         
         //⭐️table view에 종속된 collection view를 cellForRowAt에서 reloadData()해주면 인덱스 오류를 막는데 그 이유??
+        print("RecommandTableView", #function)
         cell.recommandCollectionView.reloadData()
         
         return cell
@@ -74,29 +84,30 @@ extension RecommandViewController: UITableViewDelegate, UITableViewDataSource {
     
     //특정 tableView Cell의 collectionViewCell height 바꾸는 방법??
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return indexPath.row == 3 ? 400 : 200
+        return 220
     }
-    
-    
     
 }
 
+//CollectionView
 extension RecommandViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return numArr[collectionView.tag].count
+        return recommandList[collectionView.tag].count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecommandCollectionViewCell.reuseIdentifier, for: indexPath) as? RecommandCollectionViewCell else { return UICollectionViewCell()}
         
-        cell.imageView.backgroundColor = .blue
-        cell.nameLabel.text = "\(numArr[collectionView.tag][indexPath.item])"
+        cell.posterImageView.backgroundColor = .blue
+        
+        
+            
+        let url = URL(string: "\(Endpoint.tmdbImageUrl)\(recommandList[collectionView.tag][indexPath.item])")
+        cell.posterImageView.kf.setImage(with: url)
         
         return cell
     }
-    
-    
     
 }

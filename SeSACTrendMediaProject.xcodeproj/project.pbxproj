@@ -104,8 +104,8 @@
 				251CA3B628A24DF600A7FB13 /* RecommandViewController.swift */,
 				251CA3B928A24E4200A7FB13 /* RecommandTableViewCell.xib */,
 				251CA3B828A24E4200A7FB13 /* RecommandTableViewCell.swift */,
-				251CA3BC28A2529A00A7FB13 /* RecommandCollectionViewCell.swift */,
 				251CA3BD28A2529A00A7FB13 /* RecommandCollectionViewCell.xib */,
+				251CA3BC28A2529A00A7FB13 /* RecommandCollectionViewCell.swift */,
 			);
 			path = Recommand;
 			sourceTree = "<group>";

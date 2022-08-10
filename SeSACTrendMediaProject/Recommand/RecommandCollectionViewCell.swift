@@ -11,20 +11,26 @@ class RecommandCollectionViewCell: UICollectionViewCell {
 
     static let identifier = "RecommandCollectionViewCell"
     
-    @IBOutlet weak var imageView: UIView!
-    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var posterImageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        print("RecommandCollectionViewCell", #function)
         setupUI()
     }
 
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        print("RecommandCollectionViewCell", #function)
+        posterImageView.backgroundColor = .lightGray
+    }
+    
     func setupUI() {
         
-        //imageView.backgroundColor = .tintColor
-        imageView.layer.cornerRadius = 10
-
+        posterImageView.layer.cornerRadius = 8
+        posterImageView.contentMode = .scaleToFill
         
     }
     
