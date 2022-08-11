@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		250CE23E28A4F15700EB18CC /* Cinema.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 250CE23D28A4F15700EB18CC /* Cinema.storyboard */; };
+		250CE24028A4F19500EB18CC /* CinemaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250CE23F28A4F19500EB18CC /* CinemaViewController.swift */; };
 		25151BF628A10676009A7A29 /* TmdbAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25151BF528A10676009A7A29 /* TmdbAPIManager.swift */; };
 		25151BF928A1176C009A7A29 /* Trailer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25151BF828A1176C009A7A29 /* Trailer.storyboard */; };
 		25151BFB28A117A7009A7A29 /* TrailerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25151BFA28A117A7009A7A29 /* TrailerViewController.swift */; };
@@ -46,6 +48,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		250CE23D28A4F15700EB18CC /* Cinema.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Cinema.storyboard; sourceTree = "<group>"; };
+		250CE23F28A4F19500EB18CC /* CinemaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaViewController.swift; sourceTree = "<group>"; };
 		25151BF528A10676009A7A29 /* TmdbAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TmdbAPIManager.swift; sourceTree = "<group>"; };
 		25151BF828A1176C009A7A29 /* Trailer.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Trailer.storyboard; sourceTree = "<group>"; };
 		25151BFA28A117A7009A7A29 /* TrailerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailerViewController.swift; sourceTree = "<group>"; };
@@ -97,6 +101,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		250CE23C28A4F0F200EB18CC /* Cinema */ = {
+			isa = PBXGroup;
+			children = (
+				250CE23D28A4F15700EB18CC /* Cinema.storyboard */,
+				250CE23F28A4F19500EB18CC /* CinemaViewController.swift */,
+			);
+			path = Cinema;
+			sourceTree = "<group>";
+		};
 		250F50C628A24CE50031CC0A /* Recommand */ = {
 			isa = PBXGroup;
 			children = (
@@ -155,6 +168,7 @@
 				2528B9C3289C316E0053DD77 /* Intro */,
 				25A2A446289BB4CA009DC92B /* DetailTV */,
 				250F50C628A24CE50031CC0A /* Recommand */,
+				250CE23C28A4F0F200EB18CC /* Cinema */,
 			);
 			path = SeSACTrendMediaProject;
 			sourceTree = "<group>";
@@ -292,6 +306,7 @@
 				25A2A45A289BBDB9009DC92B /* TVCastTableViewCell.xib in Resources */,
 				25286DC02899F7D4001A4C00 /* .gitignore in Resources */,
 				2528B9C5289C31930053DD77 /* Intro.storyboard in Resources */,
+				250CE23E28A4F15700EB18CC /* Cinema.storyboard in Resources */,
 				251CA3BB28A24E4200A7FB13 /* RecommandTableViewCell.xib in Resources */,
 				25286DB82899F6D1001A4C00 /* LaunchScreen.storyboard in Resources */,
 				25A2A456289BBDA1009DC92B /* TVOverviewTableViewCell.xib in Resources */,
@@ -315,6 +330,7 @@
 				25286DC82899FAAC001A4C00 /* Example.swift in Sources */,
 				25A2A455289BBDA1009DC92B /* TVOverviewTableViewCell.swift in Sources */,
 				25A2A461289BCA13009DC92B /* CastModel.swift in Sources */,
+				250CE24028A4F19500EB18CC /* CinemaViewController.swift in Sources */,
 				2528B9CD289C33430053DD77 /* TvModel.swift in Sources */,
 				25151BF628A10676009A7A29 /* TmdbAPIManager.swift in Sources */,
 				25286DC22899F828001A4C00 /* SearchViewController.swift in Sources */,
@@ -478,9 +494,10 @@
 				DEVELOPMENT_TEAM = RFHV927M8S;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SeSACTrendMediaProject/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "지도에서 내 위치를 확인하여 주변 영화관찾기 기능을 이용하기 위해 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Recommand;
+				INFOPLIST_KEY_UIMainStoryboardFile = Cinema;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -506,9 +523,10 @@
 				DEVELOPMENT_TEAM = RFHV927M8S;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SeSACTrendMediaProject/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "지도에서 내 위치를 확인하여 주변 영화관찾기 기능을 이용하기 위해 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Recommand;
+				INFOPLIST_KEY_UIMainStoryboardFile = Cinema;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
