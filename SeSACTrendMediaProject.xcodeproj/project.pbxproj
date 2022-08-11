@@ -33,6 +33,7 @@
 		2528B9CA289C32210053DD77 /* IntroCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2528B9C8289C32210053DD77 /* IntroCollectionViewCell.swift */; };
 		2528B9CB289C32210053DD77 /* IntroCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2528B9C9289C32210053DD77 /* IntroCollectionViewCell.xib */; };
 		2528B9CD289C33430053DD77 /* TvModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2528B9CC289C33430053DD77 /* TvModel.swift */; };
+		255E0A4B28A53A0800461DB1 /* CinemaList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255E0A4A28A53A0800461DB1 /* CinemaList.swift */; };
 		25A2A432289A6AA6009DC92B /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 25A2A431289A6AA6009DC92B /* Alamofire */; };
 		25A2A435289A6AB5009DC92B /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 25A2A434289A6AB5009DC92B /* SwiftyJSON */; };
 		25A2A438289A6AC7009DC92B /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 25A2A437289A6AC7009DC92B /* Kingfisher */; };
@@ -76,6 +77,7 @@
 		2528B9C8289C32210053DD77 /* IntroCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroCollectionViewCell.swift; sourceTree = "<group>"; };
 		2528B9C9289C32210053DD77 /* IntroCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IntroCollectionViewCell.xib; sourceTree = "<group>"; };
 		2528B9CC289C33430053DD77 /* TvModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvModel.swift; sourceTree = "<group>"; };
+		255E0A4A28A53A0800461DB1 /* CinemaList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaList.swift; sourceTree = "<group>"; };
 		25A2A449289BB508009DC92B /* DetailTV.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailTV.storyboard; sourceTree = "<group>"; };
 		25A2A44B289BB522009DC92B /* DetailTVViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTVViewController.swift; sourceTree = "<group>"; };
 		25A2A453289BBDA1009DC92B /* TVOverviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVOverviewTableViewCell.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 			children = (
 				250CE23D28A4F15700EB18CC /* Cinema.storyboard */,
 				250CE23F28A4F19500EB18CC /* CinemaViewController.swift */,
+				255E0A4A28A53A0800461DB1 /* CinemaList.swift */,
 			);
 			path = Cinema;
 			sourceTree = "<group>";
@@ -339,6 +342,7 @@
 				251CA3BE28A2529A00A7FB13 /* RecommandCollectionViewCell.swift in Sources */,
 				251CA3B728A24DF600A7FB13 /* RecommandViewController.swift in Sources */,
 				25286DAE2899F6CE001A4C00 /* SceneDelegate.swift in Sources */,
+				255E0A4B28A53A0800461DB1 /* CinemaList.swift in Sources */,
 				25A2A459289BBDB9009DC92B /* TVCastTableViewCell.swift in Sources */,
 				2528B9CA289C32210053DD77 /* IntroCollectionViewCell.swift in Sources */,
 				25A2A44C289BB522009DC92B /* DetailTVViewController.swift in Sources */,
@@ -497,7 +501,7 @@
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "지도에서 내 위치를 확인하여 주변 영화관찾기 기능을 이용하기 위해 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Cinema;
+				INFOPLIST_KEY_UIMainStoryboardFile = Intro;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -526,7 +530,7 @@
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "지도에서 내 위치를 확인하여 주변 영화관찾기 기능을 이용하기 위해 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Cinema;
+				INFOPLIST_KEY_UIMainStoryboardFile = Intro;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

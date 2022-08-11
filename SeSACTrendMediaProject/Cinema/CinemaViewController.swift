@@ -11,12 +11,15 @@ import MapKit
 import CoreLocation
 
 class CinemaViewController: UIViewController {
-
+    
+    static let identifier = "CinemaViewController"
     
     @IBOutlet weak var cinemaMapView: MKMapView!
     
     // 2. 위치에 대한 대부분을 담당하는 CLLocationManager 인스턴스 생성
     let locationManager = CLLocationManager()
+    
+    let cinemaList = CinemaList()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,40 +27,108 @@ class CinemaViewController: UIViewController {
         // 3. 프로토콜 연결
         locationManager.delegate = self
         
-        print(#function)
+        setNaviItem()
         
-        let center = CLLocationCoordinate2D(latitude: 37.517829, longitude: 126.886270)
-        myRegionAndAnnotation(center: center)
+        
         
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        //showRequestLocationServiceAlert()
-    }
-    
     
     // 1. 현재 위치 정하기
-    func myRegionAndAnnotation(center: CLLocationCoordinate2D) {
+    func myRegionAndAnnotation(_ title: String, _ meters: Double ,_ center: CLLocationCoordinate2D) {
         
-        let region = MKCoordinateRegion(center: center, latitudinalMeters: 600, longitudinalMeters: 600)
+        let region = MKCoordinateRegion(center: center, latitudinalMeters: meters, longitudinalMeters: meters)
         cinemaMapView.setRegion(region, animated: true)
         
         let annotation = MKPointAnnotation()
         annotation.coordinate = center
-        annotation.title = "영등포 청년취업사관학교"
+        annotation.title = title
         
         cinemaMapView.addAnnotation(annotation)
+    }
+    
+    // 위치 버튼 눌렀을 때 위치 권한 denied, restricted인 경우 showAlert -> 아닐 시 현재위치
+    @IBAction func locationButtonTapped(_ sender: UIButton) {
+        
+        locationManager.startUpdatingLocation()
+        
     }
     
 
 }
 
+
+extension CinemaViewController {
+    
+    func setNaviItem(){
+    // filter누르면 액션시트
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Filter", style: .plain, target: self, action: #selector(presentAlert))
+    }
+    
+    @objc
+    func presentAlert() {
+        setAlert()
+    }
+    
+    func setAlert() {
+        
+        let cinemaAlert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let megabox = UIAlertAction(title: "메가박스", style: .default) { action in
+            self.showCinemaAnnotation(action)
+        }
+        
+        let lotte = UIAlertAction(title: "롯데시네마", style: .default) { action in
+            self.showCinemaAnnotation(action)
+        }
+        
+        let cgv = UIAlertAction(title: "CGV", style: .default) { action in
+            self.showCinemaAnnotation(action)
+        }
+        
+        let all = UIAlertAction(title: "전체보기", style: .default) { _ in
+            self.cinemaMapView.removeAnnotations(self.cinemaMapView.annotations)
+            for item in self.cinemaList.mapAnnotations {
+                self.myRegionAndAnnotation(item.location, 16000, CLLocationCoordinate2D(latitude: item.latitude, longitude: item.longitude))
+            }
+        }
+        
+        let cancel = UIAlertAction(title: "취소", style: .cancel)
+        
+        
+        cinemaAlert.addAction(megabox)
+        cinemaAlert.addAction(lotte)
+        cinemaAlert.addAction(cgv)
+        cinemaAlert.addAction(all)
+        cinemaAlert.addAction(cancel)
+        
+        present(cinemaAlert, animated: true)
+    }
+    
+    // 선택한 영화관만
+    func showCinemaAnnotation(_ alertAction: UIAlertAction) {
+        cinemaMapView.removeAnnotations(cinemaMapView.annotations)
+        
+        for item in cinemaList.mapAnnotations {
+            if item.type == alertAction.title {
+                
+//                latitudeArr.append(item.latitude)
+//                longitudeArr.append(item.longitude)
+
+                
+                myRegionAndAnnotation(item.location, 11000, CLLocationCoordinate2D(latitude: item.latitude, longitude: item.longitude))
+            }
+        }
+    }
+    
+}
+
+
+
 // 5. 위치서비스 활성화 여부, 사용자의 위치 권한 상태 확인
 // 활성화 여부에 따른 Alert표시 후 설정으로 이동하는 함수
 // 총 3가지 작성
 extension CinemaViewController {
+
     // 5-1 사용자의 위치서비스 활성화 여부 물어보기
     // iOS 14 버전에 따른 분기 처리 밑, 위치 서비스 활성화 여부 확인
     func checkUserDeviceLocationServiceAuthorization() {
@@ -99,6 +170,9 @@ extension CinemaViewController {
             // 제한이 됐다는 것이기 때문에 Alert page로 이동!
         case .restricted, .denied:
             print("RESTRICTED")
+            let center = CLLocationCoordinate2D(latitude: 37.517829, longitude: 126.886270)
+            myRegionAndAnnotation("청년취업사관학교 영등포 캠퍼스", 600, center)
+            
         case .authorizedWhenInUse:
             print("WHEN IN USE")
             // startUpdatingLocation이 있다면 stopUpdatingLocation도 구현해줘야 함
@@ -144,7 +218,7 @@ extension CinemaViewController: CLLocationManagerDelegate {
         
         // location 파라미터 안에 coordinate(사용자의 현재 위치)를 가져와서 다시 위치를 찍어줌
         if let coordinate = locations.last?.coordinate {
-            myRegionAndAnnotation(center: coordinate)
+            myRegionAndAnnotation("현재 위치", 600, coordinate)
         }
         
         //⭐️ start updatingLocation을 하고나서 멈추기 필수!

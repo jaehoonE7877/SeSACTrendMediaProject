@@ -40,7 +40,7 @@ class IntroViewController: UIViewController {
     }
     
     func designNavibar() {
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "list.triangle"), style: .plain, target: nil, action: nil)
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "list.triangle"), style: .plain, target: self, action: #selector(listButtonTapped))
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"), style: .plain, target: nil, action: nil)
     }
     
@@ -113,6 +113,21 @@ extension IntroViewController {
         
         introCollectionView.collectionViewLayout = layout
     }
+    
+    @objc
+    func listButtonTapped() {
+        
+        let sb = UIStoryboard(name: "Cinema", bundle: nil)
+        
+        guard let vc = sb.instantiateViewController(withIdentifier: CinemaViewController.identifier) as? CinemaViewController else { return }
+        
+        self.navigationItem.title = "MY MEDIA"
+        
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+    }
+    
+    
     
 }
 

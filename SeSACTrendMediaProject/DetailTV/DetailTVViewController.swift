@@ -104,7 +104,7 @@ extension DetailTVViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
-            return 100
+            return 130
         } else {
             return 96
         }
@@ -129,7 +129,8 @@ extension DetailTVViewController: UITableViewDelegate, UITableViewDataSource {
         if indexPath.section == 0 {
             
             guard let cell = detailTvTableView.dequeueReusableCell(withIdentifier: TVOverviewTableViewCell.identifier, for: indexPath) as? TVOverviewTableViewCell else { return UITableViewCell() }
-            cell.overviewLabel.numberOfLines = isExpanded ? 0 : 2
+            cell.overviewLabel.numberOfLines = isExpanded ? 0 : 3
+            cell.overviewLabel.font = .systemFont(ofSize: 15)
             cell.overviewLabel.text = overview
             
             return cell
