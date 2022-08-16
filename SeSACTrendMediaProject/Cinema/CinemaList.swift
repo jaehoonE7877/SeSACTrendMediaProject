@@ -24,3 +24,10 @@ struct CinemaList {
         Cinema(type: "CGV", location: "CGV 용산 아이파크몰", latitude: 37.53149302830903, longitude: 126.9654030486416)
     ]
 }
+
+struct CinemaButtonList {
+    let mega = "메가박스"
+    let lotte = "롯데시네마"
+    let cgv = "CGV"
+    let all = "전체선택"
+}

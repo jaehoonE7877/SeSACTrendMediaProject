@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MyUIFramework
 
 import Kingfisher
 class RecommandViewController: UIViewController {
@@ -23,7 +24,7 @@ class RecommandViewController: UIViewController {
         recommandTableView.delegate = self
         recommandTableView.dataSource = self
         
-        recommandTableView.register(UINib(nibName: RecommandTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: RecommandTableViewCell.reuseIdentifier)
+        recommandTableView.register(UINib(nibName: RecommandTableViewCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: RecommandTableViewCell.reuseIdentifier)
         
         TmdbAPIManager.shared.requestPoster { posterList in
             //dump(posterList)
@@ -61,7 +62,7 @@ extension RecommandViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: RecommandTableViewCell.identifier, for: indexPath) as? RecommandTableViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: RecommandTableViewCell.reuseIdentifier, for: indexPath) as? RecommandTableViewCell else { return UITableViewCell() }
         
         cell.backgroundColor = .black
         cell.titleLabel.text = "\(TmdbAPIManager.shared.tvList[indexPath.row].0)와 비슷한 콘텐츠"
@@ -70,7 +71,7 @@ extension RecommandViewController: UITableViewDelegate, UITableViewDataSource {
         cell.recommandCollectionView.delegate = self
         cell.recommandCollectionView.dataSource = self
         
-        cell.recommandCollectionView.register(UINib(nibName: RecommandCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: RecommandCollectionViewCell.reuseIdentifier)
+        cell.recommandCollectionView.register(UINib(nibName: RecommandCollectionViewCell.reuseIdentifier, bundle: nil), forCellWithReuseIdentifier: RecommandCollectionViewCell.reuseIdentifier)
         
         cell.recommandCollectionView.tag = indexPath.row
         cell.recommandCollectionView.backgroundColor = .black

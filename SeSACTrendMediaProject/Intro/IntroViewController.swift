@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MyUIFramework
 
 import Alamofire
 import JGProgressHUD
@@ -119,7 +120,7 @@ extension IntroViewController {
         
         let sb = UIStoryboard(name: "Cinema", bundle: nil)
         
-        guard let vc = sb.instantiateViewController(withIdentifier: CinemaViewController.identifier) as? CinemaViewController else { return }
+        guard let vc = sb.instantiateViewController(withIdentifier: CinemaViewController.reuseIdentifier) as? CinemaViewController else { return }
         
         self.navigationItem.title = "MY MEDIA"
         
@@ -141,7 +142,7 @@ extension IntroViewController : UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        guard let cell = introCollectionView.dequeueReusableCell(withReuseIdentifier: IntroCollectionViewCell.identifier, for: indexPath) as? IntroCollectionViewCell else { return UICollectionViewCell() }
+        guard let cell = introCollectionView.dequeueReusableCell(withReuseIdentifier: IntroCollectionViewCell.reuseIdentifier, for: indexPath) as? IntroCollectionViewCell else { return UICollectionViewCell() }
         
         cell.firstDayLabel.text = tvList[indexPath.item].firstDate
         cell.tvNameLabel.text = tvList[indexPath.item].tvName
@@ -176,7 +177,7 @@ extension IntroViewController : UICollectionViewDelegate, UICollectionViewDataSo
         
         let sb = UIStoryboard(name: "DetailTV", bundle: nil)
 
-        let vc = sb.instantiateViewController(withIdentifier: DetailTVViewController.identifier) as! DetailTVViewController
+        let vc = sb.instantiateViewController(withIdentifier: DetailTVViewController.reuseIdentifier) as! DetailTVViewController
 
         vc.tvId = tvList[indexPath.item].tvID
         vc.overview = tvList[indexPath.item].overview

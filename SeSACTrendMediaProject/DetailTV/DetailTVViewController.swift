@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MyUIFramework
 
 import Alamofire
 import JGProgressHUD
@@ -13,9 +14,7 @@ import Kingfisher
 import SwiftyJSON
 
 class DetailTVViewController: UIViewController {
-    
-    static let identifier = "DetailTVViewController"
-    
+        
     let hud = JGProgressHUD()
     
     var tvId: Int?
@@ -128,7 +127,7 @@ extension DetailTVViewController: UITableViewDelegate, UITableViewDataSource {
         
         if indexPath.section == 0 {
             
-            guard let cell = detailTvTableView.dequeueReusableCell(withIdentifier: TVOverviewTableViewCell.identifier, for: indexPath) as? TVOverviewTableViewCell else { return UITableViewCell() }
+            guard let cell = detailTvTableView.dequeueReusableCell(withIdentifier: TVOverviewTableViewCell.reuseIdentifier, for: indexPath) as? TVOverviewTableViewCell else { return UITableViewCell() }
             cell.overviewLabel.numberOfLines = isExpanded ? 0 : 3
             cell.overviewLabel.font = .systemFont(ofSize: 15)
             cell.overviewLabel.text = overview
@@ -137,7 +136,7 @@ extension DetailTVViewController: UITableViewDelegate, UITableViewDataSource {
             
         } else {
             
-            guard let cell = detailTvTableView.dequeueReusableCell(withIdentifier: TVCastTableViewCell.identifier, for: indexPath) as? TVCastTableViewCell else { return UITableViewCell() }
+            guard let cell = detailTvTableView.dequeueReusableCell(withIdentifier: TVCastTableViewCell.reuseIdentifier, for: indexPath) as? TVCastTableViewCell else { return UITableViewCell() }
                 
             cell.actorRealNameLabel.text = detailTvList[indexPath.item].actorRealName
             cell.actingNameLabel.font = UIFont.boldSystemFont(ofSize: 17)

@@ -8,8 +8,6 @@
 import UIKit
 
 class IntroCollectionViewCell: UICollectionViewCell {
-
-    static let identifier = "IntroCollectionViewCell"
     
     @IBOutlet weak var firstDayLabel: UILabel!
     @IBOutlet weak var genreLabel: UILabel!

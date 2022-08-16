@@ -8,14 +8,9 @@
 import UIKit
 
 class RecommandTableViewCell: UITableViewCell {
-
-    static let identifier = "RecommandTableViewCell"
-    
     
     @IBOutlet weak var recommandCollectionView: UICollectionView!
     @IBOutlet weak var titleLabel: UILabel!
-    
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -33,7 +28,7 @@ class RecommandTableViewCell: UITableViewCell {
         print("RecommandTableViewCell", #function)
     }
 
-    func setupUI() {
+    private func setupUI() {
         
         titleLabel.font = .boldSystemFont(ofSize: 20)
         //titleLabel.text = "다시보기 추천 콘텐츠"
@@ -43,7 +38,7 @@ class RecommandTableViewCell: UITableViewCell {
         recommandCollectionView.collectionViewLayout = collectionViewLayout()
     }
     
-    func collectionViewLayout() -> UICollectionViewFlowLayout {
+    private func collectionViewLayout() -> UICollectionViewFlowLayout {
         
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="x8C-z9-6Me">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Walk Through View Controller-->
+        <scene sceneID="M6D-nw-EgJ">
+            <objects>
+                <pageViewController storyboardIdentifier="WalkThroughViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="x8C-z9-6Me" customClass="WalkThroughViewController" customModule="SeSACTrendMediaProject" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NZX-rm-Z9F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-600" y="84"/>
+        </scene>
+        <!--Walk First View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="WalkFirstViewController" id="Y6W-OH-hqX" customClass="WalkFirstViewController" customModule="SeSACTrendMediaProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tvImage" translatesAutoresizingMaskIntoConstraints="NO" id="LVU-Sb-qbb">
+                                <rect key="frame" x="132" y="373" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="5Ts-Dz-P5h"/>
+                                    <constraint firstAttribute="height" constant="150" id="j7F-2Q-eQP"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="LVU-Sb-qbb" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="5Bb-sH-yA9"/>
+                            <constraint firstItem="LVU-Sb-qbb" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="hY2-dB-14Z"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="centerImageView" destination="LVU-Sb-qbb" id="gx2-PE-ABo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="132" y="84"/>
+        </scene>
+        <!--Walk Second View Controller-->
+        <scene sceneID="7m6-b7-kOI">
+            <objects>
+                <viewController storyboardIdentifier="WalkSecondViewController" id="EYp-hi-VBQ" customClass="WalkSecondViewController" customModule="SeSACTrendMediaProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4JM-FI-Yxv">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="uDb-TY-TMI"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3WW-JP-wV0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="861" y="84"/>
+        </scene>
+        <!--Walk Third View Controller-->
+        <scene sceneID="Uft-6z-45M">
+            <objects>
+                <viewController storyboardIdentifier="WalkThirdViewController" id="I98-M0-Xuw" customClass="WalkThirdViewController" customModule="SeSACTrendMediaProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="R20-vL-HWP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CeG-1m-adA">
+                                <rect key="frame" x="40" y="738" width="334" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="rt7-UE-n67"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="startButtonTapped:" destination="I98-M0-Xuw" eventType="touchUpInside" id="zyi-jj-d5s"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Ljd-9I-kSG"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="CeG-1m-adA" firstAttribute="leading" secondItem="Ljd-9I-kSG" secondAttribute="leading" constant="40" id="T7w-rB-pPU"/>
+                            <constraint firstItem="Ljd-9I-kSG" firstAttribute="trailing" secondItem="CeG-1m-adA" secondAttribute="trailing" constant="40" id="ceC-ro-dgX"/>
+                            <constraint firstItem="Ljd-9I-kSG" firstAttribute="bottom" secondItem="CeG-1m-adA" secondAttribute="bottom" constant="80" id="jjy-JF-E3g"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="walkthroughThirdStartButton" destination="CeG-1m-adA" id="WCR-X1-24D"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LuA-g3-Lwi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1590" y="84"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="tvImage" width="1200" height="1200"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -23,7 +23,7 @@ class TmdbAPIManager {
                   ("지금 우리 학교는" , 99966)
     ]
     // movie로 선택하
-    let movieList = [String]()
+    //let movieList = [String]()
     
     
     func requestData(type: Endpoint, startPage: Int, tvId: Int, completionHandler: @escaping (JSON) -> () ) {

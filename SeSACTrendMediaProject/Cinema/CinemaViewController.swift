@@ -7,19 +7,20 @@
 
 import UIKit
 import MapKit
+//import MyUIFramework
 
 import CoreLocation
 
 class CinemaViewController: UIViewController {
-    
-    static let identifier = "CinemaViewController"
-    
+        
     @IBOutlet weak var cinemaMapView: MKMapView!
     
     // 2. 위치에 대한 대부분을 담당하는 CLLocationManager 인스턴스 생성
     let locationManager = CLLocationManager()
     
     let cinemaList = CinemaList()
+    
+    let cinemaButton = CinemaButtonList()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +29,6 @@ class CinemaViewController: UIViewController {
         locationManager.delegate = self
         
         setNaviItem()
-        
         
         
     }
@@ -49,6 +49,7 @@ class CinemaViewController: UIViewController {
     // 위치 버튼 눌렀을 때 위치 권한 denied, restricted인 경우 showAlert -> 아닐 시 현재위치
     @IBAction func locationButtonTapped(_ sender: UIButton) {
         
+        cinemaMapView.removeAnnotations(cinemaMapView.annotations)
         locationManager.startUpdatingLocation()
         
     }
@@ -66,42 +67,16 @@ extension CinemaViewController {
     
     @objc
     func presentAlert() {
-        setAlert()
-    }
-    
-    func setAlert() {
         
-        let cinemaAlert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        
-        let megabox = UIAlertAction(title: "메가박스", style: .default) { action in
-            self.showCinemaAnnotation(action)
-        }
-        
-        let lotte = UIAlertAction(title: "롯데시네마", style: .default) { action in
-            self.showCinemaAnnotation(action)
-        }
-        
-        let cgv = UIAlertAction(title: "CGV", style: .default) { action in
-            self.showCinemaAnnotation(action)
-        }
-        
-        let all = UIAlertAction(title: "전체보기", style: .default) { _ in
-            self.cinemaMapView.removeAnnotations(self.cinemaMapView.annotations)
-            for item in self.cinemaList.mapAnnotations {
-                self.myRegionAndAnnotation(item.location, 16000, CLLocationCoordinate2D(latitude: item.latitude, longitude: item.longitude))
+        let buttonTitle = [cinemaButton.mega , cinemaButton.lotte, cinemaButton.cgv, cinemaButton.all]
+        setAlert(title: nil, message: nil, buttonTitle: buttonTitle) { action in
+
+            if action.title == self.cinemaButton.all {
+                self.showAllCinemaAnnotation(action)
+            } else {
+                self.showCinemaAnnotation(action)
             }
         }
-        
-        let cancel = UIAlertAction(title: "취소", style: .cancel)
-        
-        
-        cinemaAlert.addAction(megabox)
-        cinemaAlert.addAction(lotte)
-        cinemaAlert.addAction(cgv)
-        cinemaAlert.addAction(all)
-        cinemaAlert.addAction(cancel)
-        
-        present(cinemaAlert, animated: true)
     }
     
     // 선택한 영화관만
@@ -117,6 +92,14 @@ extension CinemaViewController {
                 
                 myRegionAndAnnotation(item.location, 11000, CLLocationCoordinate2D(latitude: item.latitude, longitude: item.longitude))
             }
+        }
+    }
+    // 전체 영화관 보여주기
+    func showAllCinemaAnnotation(_ alertAction: UIAlertAction){
+        
+        self.cinemaMapView.removeAnnotations(self.cinemaMapView.annotations)
+        for item in self.cinemaList.mapAnnotations {
+            self.myRegionAndAnnotation(item.location, 16000, CLLocationCoordinate2D(latitude: item.latitude, longitude: item.longitude))
         }
     }
     
@@ -148,6 +131,7 @@ extension CinemaViewController {
             checkUserCurrentLocationAuthorization(authorizationStatus)
         } else {
             // showAlert
+            showRequestLocationServiceAlert()
             print("위치 서비스 활성화가 되어있지 않습니다.")
         }
             

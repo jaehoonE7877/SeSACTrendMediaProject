@@ -8,8 +8,6 @@
 import UIKit
 
 class RecommandCollectionViewCell: UICollectionViewCell {
-
-    static let identifier = "RecommandCollectionViewCell"
     
     @IBOutlet weak var posterImageView: UIImageView!
     
@@ -27,7 +25,7 @@ class RecommandCollectionViewCell: UICollectionViewCell {
         posterImageView.backgroundColor = .lightGray
     }
     
-    func setupUI() {
+    private func setupUI() {
         
         posterImageView.layer.cornerRadius = 8
         posterImageView.contentMode = .scaleToFill

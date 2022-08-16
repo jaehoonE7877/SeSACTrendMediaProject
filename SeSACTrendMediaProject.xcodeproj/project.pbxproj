@@ -44,9 +44,40 @@
 		25A2A456289BBDA1009DC92B /* TVOverviewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25A2A454289BBDA1009DC92B /* TVOverviewTableViewCell.xib */; };
 		25A2A459289BBDB9009DC92B /* TVCastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A2A457289BBDB9009DC92B /* TVCastTableViewCell.swift */; };
 		25A2A45A289BBDB9009DC92B /* TVCastTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25A2A458289BBDB9009DC92B /* TVCastTableViewCell.xib */; };
-		25A2A45D289BC011009DC92B /* ReusableViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A2A45C289BC011009DC92B /* ReusableViewProtocol.swift */; };
 		25A2A461289BCA13009DC92B /* CastModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A2A460289BCA13009DC92B /* CastModel.swift */; };
+		25BF107928ABA987007BC395 /* MyUIFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25BF107828ABA956007BC395 /* MyUIFramework.framework */; };
+		25BF107A28ABA987007BC395 /* MyUIFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 25BF107828ABA956007BC395 /* MyUIFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		25BF107D28ABC6FD007BC395 /* WalkThrough.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25BF107C28ABC6FD007BC395 /* WalkThrough.storyboard */; };
+		25BF107F28ABC77E007BC395 /* WalkThroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BF107E28ABC77E007BC395 /* WalkThroughViewController.swift */; };
+		25BF108128ABC7A9007BC395 /* WalkFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BF108028ABC7A9007BC395 /* WalkFirstViewController.swift */; };
+		25BF108328ABC7C1007BC395 /* WalkSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BF108228ABC7C1007BC395 /* WalkSecondViewController.swift */; };
+		25BF108528ABC7D8007BC395 /* WalkThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BF108428ABC7D8007BC395 /* WalkThirdViewController.swift */; };
+		25BF108828ABDC2B007BC395 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BF108728ABDC2B007BC395 /* UIColor+Extension.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		25BF107728ABA956007BC395 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 25BF107328ABA956007BC395 /* MyUIFramework.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25BF104628AB8D54007BC395;
+			remoteInfo = MyUIFramework;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		25BF106F28ABA5DF007BC395 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				25BF107A28ABA987007BC395 /* MyUIFramework.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		250CE23D28A4F15700EB18CC /* Cinema.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Cinema.storyboard; sourceTree = "<group>"; };
@@ -84,8 +115,14 @@
 		25A2A454289BBDA1009DC92B /* TVOverviewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TVOverviewTableViewCell.xib; sourceTree = "<group>"; };
 		25A2A457289BBDB9009DC92B /* TVCastTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVCastTableViewCell.swift; sourceTree = "<group>"; };
 		25A2A458289BBDB9009DC92B /* TVCastTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TVCastTableViewCell.xib; sourceTree = "<group>"; };
-		25A2A45C289BC011009DC92B /* ReusableViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableViewProtocol.swift; sourceTree = "<group>"; };
 		25A2A460289BCA13009DC92B /* CastModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastModel.swift; sourceTree = "<group>"; };
+		25BF107328ABA956007BC395 /* MyUIFramework.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MyUIFramework.xcodeproj; path = ../MyUIFramework/MyUIFramework.xcodeproj; sourceTree = "<group>"; };
+		25BF107C28ABC6FD007BC395 /* WalkThrough.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WalkThrough.storyboard; sourceTree = "<group>"; };
+		25BF107E28ABC77E007BC395 /* WalkThroughViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkThroughViewController.swift; sourceTree = "<group>"; };
+		25BF108028ABC7A9007BC395 /* WalkFirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkFirstViewController.swift; sourceTree = "<group>"; };
+		25BF108228ABC7C1007BC395 /* WalkSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkSecondViewController.swift; sourceTree = "<group>"; };
+		25BF108428ABC7D8007BC395 /* WalkThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkThirdViewController.swift; sourceTree = "<group>"; };
+		25BF108728ABDC2B007BC395 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +133,7 @@
 				25A2A445289BAA0C009DC92B /* JGProgressHUD in Frameworks */,
 				25A2A438289A6AC7009DC92B /* Kingfisher in Frameworks */,
 				25A2A435289A6AB5009DC92B /* SwiftyJSON in Frameworks */,
+				25BF107928ABA987007BC395 /* MyUIFramework.framework in Frameworks */,
 				25A2A432289A6AA6009DC92B /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -138,9 +176,11 @@
 		25286D9F2899F6CE001A4C00 = {
 			isa = PBXGroup;
 			children = (
+				25BF107328ABA956007BC395 /* MyUIFramework.xcodeproj */,
 				25286DBF2899F7D4001A4C00 /* .gitignore */,
 				25286DAA2899F6CE001A4C00 /* SeSACTrendMediaProject */,
 				25286DA92899F6CE001A4C00 /* Products */,
+				25BF106C28ABA5DF007BC395 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -155,8 +195,8 @@
 		25286DAA2899F6CE001A4C00 /* SeSACTrendMediaProject */ = {
 			isa = PBXGroup;
 			children = (
+				25BF108628ABDC18007BC395 /* Extension */,
 				2555B9DA28A08C5B0090B983 /* APIManager */,
-				25A2A45B289BBFF3009DC92B /* Protocol */,
 				25286DC62899FA87001A4C00 /* Key */,
 				25286DC52899FA17001A4C00 /* Resource */,
 				25286DAB2899F6CE001A4C00 /* AppDelegate.swift */,
@@ -167,9 +207,10 @@
 				25286DB62899F6D1001A4C00 /* LaunchScreen.storyboard */,
 				25286DB92899F6D1001A4C00 /* Info.plist */,
 				25286DC12899F828001A4C00 /* SearchViewController.swift */,
-				25151BF728A1173A009A7A29 /* Trailer */,
+				25BF107B28ABC6BF007BC395 /* WalkThrough */,
 				2528B9C3289C316E0053DD77 /* Intro */,
 				25A2A446289BB4CA009DC92B /* DetailTV */,
+				25151BF728A1173A009A7A29 /* Trailer */,
 				250F50C628A24CE50031CC0A /* Recommand */,
 				250CE23C28A4F0F200EB18CC /* Cinema */,
 			);
@@ -226,12 +267,39 @@
 			path = DetailTV;
 			sourceTree = "<group>";
 		};
-		25A2A45B289BBFF3009DC92B /* Protocol */ = {
+		25BF106C28ABA5DF007BC395 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				25A2A45C289BC011009DC92B /* ReusableViewProtocol.swift */,
 			);
-			path = Protocol;
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		25BF107428ABA956007BC395 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				25BF107828ABA956007BC395 /* MyUIFramework.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		25BF107B28ABC6BF007BC395 /* WalkThrough */ = {
+			isa = PBXGroup;
+			children = (
+				25BF107C28ABC6FD007BC395 /* WalkThrough.storyboard */,
+				25BF107E28ABC77E007BC395 /* WalkThroughViewController.swift */,
+				25BF108028ABC7A9007BC395 /* WalkFirstViewController.swift */,
+				25BF108228ABC7C1007BC395 /* WalkSecondViewController.swift */,
+				25BF108428ABC7D8007BC395 /* WalkThirdViewController.swift */,
+			);
+			path = WalkThrough;
+			sourceTree = "<group>";
+		};
+		25BF108628ABDC18007BC395 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				25BF108728ABDC2B007BC395 /* UIColor+Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,6 +312,7 @@
 				25286DA42899F6CE001A4C00 /* Sources */,
 				25286DA52899F6CE001A4C00 /* Frameworks */,
 				25286DA62899F6CE001A4C00 /* Resources */,
+				25BF106F28ABA5DF007BC395 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -292,12 +361,28 @@
 			);
 			productRefGroup = 25286DA92899F6CE001A4C00 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 25BF107428ABA956007BC395 /* Products */;
+					ProjectRef = 25BF107328ABA956007BC395 /* MyUIFramework.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				25286DA72899F6CE001A4C00 /* SeSACTrendMediaProject */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		25BF107828ABA956007BC395 /* MyUIFramework.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = MyUIFramework.framework;
+			remoteRef = 25BF107728ABA956007BC395 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		25286DA62899F6CE001A4C00 /* Resources */ = {
@@ -318,6 +403,7 @@
 				25286DB52899F6D1001A4C00 /* Assets.xcassets in Resources */,
 				25151BF928A1176C009A7A29 /* Trailer.storyboard in Resources */,
 				25286DB32899F6CE001A4C00 /* Main.storyboard in Resources */,
+				25BF107D28ABC6FD007BC395 /* WalkThrough.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,21 +418,25 @@
 				25286DAC2899F6CE001A4C00 /* AppDelegate.swift in Sources */,
 				25286DC82899FAAC001A4C00 /* Example.swift in Sources */,
 				25A2A455289BBDA1009DC92B /* TVOverviewTableViewCell.swift in Sources */,
+				25BF108328ABC7C1007BC395 /* WalkSecondViewController.swift in Sources */,
 				25A2A461289BCA13009DC92B /* CastModel.swift in Sources */,
 				250CE24028A4F19500EB18CC /* CinemaViewController.swift in Sources */,
 				2528B9CD289C33430053DD77 /* TvModel.swift in Sources */,
 				25151BF628A10676009A7A29 /* TmdbAPIManager.swift in Sources */,
+				25BF108828ABDC2B007BC395 /* UIColor+Extension.swift in Sources */,
+				25BF108528ABC7D8007BC395 /* WalkThirdViewController.swift in Sources */,
+				25BF108128ABC7A9007BC395 /* WalkFirstViewController.swift in Sources */,
 				25286DC22899F828001A4C00 /* SearchViewController.swift in Sources */,
 				251CA3BA28A24E4200A7FB13 /* RecommandTableViewCell.swift in Sources */,
 				25151BFB28A117A7009A7A29 /* TrailerViewController.swift in Sources */,
 				251CA3BE28A2529A00A7FB13 /* RecommandCollectionViewCell.swift in Sources */,
+				25BF107F28ABC77E007BC395 /* WalkThroughViewController.swift in Sources */,
 				251CA3B728A24DF600A7FB13 /* RecommandViewController.swift in Sources */,
 				25286DAE2899F6CE001A4C00 /* SceneDelegate.swift in Sources */,
 				255E0A4B28A53A0800461DB1 /* CinemaList.swift in Sources */,
 				25A2A459289BBDB9009DC92B /* TVCastTableViewCell.swift in Sources */,
 				2528B9CA289C32210053DD77 /* IntroCollectionViewCell.swift in Sources */,
 				25A2A44C289BB522009DC92B /* DetailTVViewController.swift in Sources */,
-				25A2A45D289BC011009DC92B /* ReusableViewProtocol.swift in Sources */,
 				25286DC42899F88D001A4C00 /* APIKey.swift in Sources */,
 				2528B9C7289C31CF0053DD77 /* IntroViewController.swift in Sources */,
 			);
@@ -501,9 +591,10 @@
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "지도에서 내 위치를 확인하여 주변 영화관찾기 기능을 이용하기 위해 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Intro;
+				INFOPLIST_KEY_UIMainStoryboardFile = WalkThrough;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -530,9 +621,10 @@
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "지도에서 내 위치를 확인하여 주변 영화관찾기 기능을 이용하기 위해 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Intro;
+				INFOPLIST_KEY_UIMainStoryboardFile = WalkThrough;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
