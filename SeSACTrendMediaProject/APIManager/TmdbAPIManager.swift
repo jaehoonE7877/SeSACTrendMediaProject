@@ -45,6 +45,10 @@ class TmdbAPIManager {
             case .success(let value):
                 
                 let json = JSON(value)
+                switch
+                
+                
+                
                 completionHandler(json)
                 
             case .failure(let error):

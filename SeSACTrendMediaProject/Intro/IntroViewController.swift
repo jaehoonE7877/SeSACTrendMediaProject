@@ -118,13 +118,16 @@ extension IntroViewController {
     @objc
     func listButtonTapped() {
         
-        let sb = UIStoryboard(name: "Cinema", bundle: nil)
         
-        guard let vc = sb.instantiateViewController(withIdentifier: CinemaViewController.reuseIdentifier) as? CinemaViewController else { return }
+        transitionViewController(storyboard: "Cinema", viewController: CinemaViewController(), transitionStyle: .push)
         
-        self.navigationItem.title = "MY MEDIA"
-        
-        self.navigationController?.pushViewController(vc, animated: true)
+//        let sb = UIStoryboard(name: "Cinema", bundle: nil)
+//
+//        guard let vc = sb.instantiateViewController(withIdentifier: CinemaViewController.reuseIdentifier) as? CinemaViewController else { return }
+//
+//        self.navigationItem.title = "MY MEDIA"
+//        
+//        self.navigationController?.pushViewController(vc, animated: true)
         
     }
     
@@ -190,6 +193,8 @@ extension IntroViewController : UICollectionViewDelegate, UICollectionViewDataSo
     
     @objc
     func trailerButtonTapped(_ sender: UIButton){
+        
+        
         
         let sb = UIStoryboard(name: "Trailer", bundle: nil)
         guard let vc = sb.instantiateViewController(withIdentifier: TrailerViewController.reuseIdentifier) as? TrailerViewController else { return }

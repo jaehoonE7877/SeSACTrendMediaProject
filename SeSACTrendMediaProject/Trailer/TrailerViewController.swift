@@ -10,8 +10,6 @@ import WebKit
 
 class TrailerViewController: UIViewController {
     
-    static let identifier = "TrailerViewController"
-
     @IBOutlet weak var trailerView: WKWebView!
     
     var tvId: Int?
@@ -27,7 +25,7 @@ class TrailerViewController: UIViewController {
     func requestTrailer() {
         
         guard let tvId = tvId else { return }
-
+        
         TmdbAPIManager.shared.requestData(type: .trailer, startPage: 0, tvId: tvId) { json in
             let trailerKey = json["results"][0]["key"].stringValue
         
@@ -37,6 +35,7 @@ class TrailerViewController: UIViewController {
     }
     
     func openWeb(key: String) {
+        
         guard let url = URL(string: destinationURL+key) else {
             print("Invalid URl")
             return
